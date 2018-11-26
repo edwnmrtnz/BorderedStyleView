@@ -1,1 +1,1 @@
-include ':app', ':borderedstyleview'
+include ':borderedstyleview', ':app'
