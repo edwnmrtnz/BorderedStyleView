@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge  xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:parentTag="android.support.constraint.ConstraintLayout"
+        tools:orientation="horizontal">
+
+    <android.support.v7.widget.AppCompatTextView
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="First Name"
+            app:layout_constraintEnd_toEndOf="@+id/etField"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/etField"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvErrorTExt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Required"
+            android:visibility="gone"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tvTitle"
+            app:layout_constraintEnd_toEndOf="@+id/etField"
+            tools:visibility="visible"/>
+
+    <android.support.v7.widget.AppCompatEditText
+            android:layout_marginTop="8dp"
+            android:id="@+id/etField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bordered_roundbox"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvErrorTExt"/>
+
+</merge>
