@@ -29,7 +29,7 @@ class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) : Cons
 
         attributes.recycle()
     }
-    
+
     fun setError(errorMessage: String) {
         tvTitle.setTextColor(Color.RED)
         tvError.visibility = View.VISIBLE
