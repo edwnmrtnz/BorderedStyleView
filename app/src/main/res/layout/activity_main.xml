@@ -9,7 +9,6 @@
         tools:context=".MainActivity">
 
     <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
-            android:maxLength="2"
             android:maxLines="1"
             android:inputType="number"
             app:title="First Name"
