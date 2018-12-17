@@ -29,15 +29,24 @@
         app:fieldTitle="Password"
         app:layout_constraintTop_toBottomOf="@+id/etMobileNumber" />
 
+
+    <com.github.edwnmrtz.borderedstyleedittext.BorderedStyleSpinner
+        android:layout_marginTop="8dp"
+        app:fieldTitle="Suffix"
+        app:layout_constraintTop_toBottomOf="@+id/etPassword"
+        android:id="@+id/spnSuffix"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:text="LOGIN"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/spnSuffix" />
 
 
 </android.support.constraint.ConstraintLayout>

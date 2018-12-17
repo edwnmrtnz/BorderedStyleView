@@ -12,12 +12,14 @@ import android.text.InputFilter
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.View
+import android.view.inputmethod.EditorInfo
 
-class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
+class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
 
     private var tvTitle: AppCompatTextView
     private var tvError: AppCompatTextView
     private var etField: AppCompatEditText
+    private var tvPrefix : AppCompatTextView
 
     private var titleTextColor : Int    = Color.BLACK
     private var errorTextColor: Int     = Color.RED
@@ -25,42 +27,48 @@ class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
     private var isError = false
 
     init {
-        View.inflate(context, R.layout.bordered_edittext_password, this)
-        tvTitle = findViewById(R.id.tvTitle)
-        tvError = findViewById(R.id.tvError)
-        etField = findViewById(R.id.etField)
+        View.inflate(context, R.layout.bordered_edittext_prefixed, this)
+        tvTitle     = findViewById(R.id.tvTitle)
+        tvError     = findViewById(R.id.tvError)
+        etField     = findViewById(R.id.etField)
+        tvPrefix    = findViewById(R.id.tvPrefix)
 
-        val attributes: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.PasswordBorderedStyleEditText, 0, 0)
+        val attributes: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.PrefixedBorderedStyleEditText, 0, 0)
         val count = attributes.indexCount
         for (i in 0 until count) {
             val attr = attributes.getIndex(i)
             when (attr) {
-                R.styleable.PasswordBorderedStyleEditText_android_imeOptions -> {
+                R.styleable.PrefixedBorderedStyleEditText_android_imeOptions -> {
                     etField.imeOptions =  attributes.getInt(attr, 0)
-
                 }
-                R.styleable.PasswordBorderedStyleEditText_android_maxLines -> {
+                R.styleable.NormalBorderedStyleEditText_android_inputType -> {
+                    etField.inputType = attributes.getInt(R.styleable.NormalBorderedStyleEditText_android_inputType, EditorInfo.TYPE_CLASS_TEXT)
+                }
+                R.styleable.PrefixedBorderedStyleEditText_android_maxLines -> {
                     etField.maxLines = attributes.getInt(attr, 1000)
                 }
-                R.styleable.PasswordBorderedStyleEditText_android_maxLength -> {
+                R.styleable.PrefixedBorderedStyleEditText_android_maxLength -> {
                     etField.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(attributes.getInt(attr, 1000)))
                 }
-                R.styleable.PasswordBorderedStyleEditText_fieldError -> {
-                    tvError.text = attributes.getString(R.styleable.PasswordBorderedStyleEditText_fieldError)
+                R.styleable.PrefixedBorderedStyleEditText_fieldError -> {
+                    tvError.text = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_fieldError)
                 }
-                R.styleable.PasswordBorderedStyleEditText_fieldTitle -> {
-                    tvTitle.text = attributes.getString(R.styleable.PasswordBorderedStyleEditText_fieldTitle)
+                R.styleable.PrefixedBorderedStyleEditText_fieldTitle -> {
+                    tvTitle.text = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_fieldTitle)
                     tvTitle.visibility = View.VISIBLE
                 }
-                R.styleable.PasswordBorderedStyleEditText_fieldErrorTextColor -> {
-                    errorTextColor = attributes.getColor(R.styleable.PasswordBorderedStyleEditText_fieldErrorTextColor,
-                        ContextCompat.getColor(context, android.R.color.holo_red_light))
+                R.styleable.PrefixedBorderedStyleEditText_fieldErrorTextColor -> {
+                    errorTextColor = attributes.getColor(R.styleable.PrefixedBorderedStyleEditText_fieldErrorTextColor,
+                            ContextCompat.getColor(context, android.R.color.holo_red_light))
                     tvError.setTextColor(errorTextColor)
                 }
-                R.styleable.PasswordBorderedStyleEditText_fieldTitleTextColor -> {
-                    titleTextColor = attributes.getColor(R.styleable.PasswordBorderedStyleEditText_fieldTitleTextColor,
-                        Color.BLACK)
+                R.styleable.PrefixedBorderedStyleEditText_fieldTitleTextColor -> {
+                    titleTextColor = attributes.getColor(R.styleable.PrefixedBorderedStyleEditText_fieldTitleTextColor,
+                            Color.BLACK)
                     tvTitle.setTextColor(titleTextColor)
+                }
+                R.styleable.PrefixedBorderedStyleEditText_prefix -> {
+                    tvPrefix.text = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_prefix)
                 }
             }
         }
@@ -114,6 +122,6 @@ class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
     }
 
     companion object {
-        val TAG = "PasswordBorderedStyle"
+        val TAG = "PrefixedBorderedStyle"
     }
 }

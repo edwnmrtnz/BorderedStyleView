@@ -66,7 +66,7 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
                 R.styleable.NormalBorderedStyleEditText_fieldTitleTextColor -> {
                     titleTextColor = attributes.getColor(R.styleable.NormalBorderedStyleEditText_fieldTitleTextColor,
                             Color.BLACK)
-                    tvTitle.setTextColor(errorTextColor)
+                    tvTitle.setTextColor(titleTextColor)
                 }
             }
         }

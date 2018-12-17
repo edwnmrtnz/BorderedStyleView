@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="android.support.constraint.ConstraintLayout"
+    tools:orientation="horizontal">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        tools:text="Mobile Number"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/llMobile"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/llMobile"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvError"
+        android:textColor="@android:color/holo_red_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        tools:text="Required"
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvTitle"
+        app:layout_constraintEnd_toEndOf="@+id/llMobile"
+        tools:visibility="visible"
+        android:layout_marginRight="8dp" />
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:id="@+id/llMobile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bordered_roundbox"
+        android:clipToPadding="false"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvPrefix"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            tools:text="+63" />
+
+        <View
+            android:id="@+id/dividerMobileNumber"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="-10dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="-10dp"
+            android:background="#ebebeb"/>
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/etMobile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:inputType="phone"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true" />
+    </android.support.v7.widget.LinearLayoutCompat>
+
+</merge>

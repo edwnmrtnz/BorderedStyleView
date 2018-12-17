@@ -38,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
                 if(password.isEmpty()) {
                     etPassword.setError("Cannot be empty");
                 }
-
-
             }
         });
 
