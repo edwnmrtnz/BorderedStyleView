@@ -12,60 +12,54 @@ import android.text.InputFilter
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.View
-import android.view.inputmethod.EditorInfo
 
+class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
 
-open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
+    private var tvTitle: AppCompatTextView
+    private var tvError: AppCompatTextView
+    private var etField: AppCompatEditText
 
-     private var tvTitle: AppCompatTextView
-     private var tvError: AppCompatTextView
-     private var etField: AppCompatEditText
+    private var titleTextColor : Int    = Color.BLACK
+    private var errorTextColor: Int     = Color.RED
 
-     private var titleTextColor : Int    = Color.BLACK
-     private var errorTextColor: Int     = Color.RED
-
-     private var isError = false
+    private var isError = false
 
     init {
-        View.inflate(context, R.layout.bordered_edittext_normal, this)
+        View.inflate(context, R.layout.bordered_edittext_password, this)
         tvTitle = findViewById(R.id.tvTitle)
-        tvError = findViewById(R.id.tvErrorText)
+        tvError = findViewById(R.id.tvError)
         etField = findViewById(R.id.etField)
 
-        val attributes: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.NormalBorderedStyleEditText, 0, 0)
-
+        val attributes: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.PasswordBorderedStyleEditText, 0, 0)
         val count = attributes.indexCount
         for (i in 0 until count) {
             val attr = attributes.getIndex(i)
             when (attr) {
-                R.styleable.NormalBorderedStyleEditText_android_imeOptions -> {
+                R.styleable.PasswordBorderedStyleEditText_android_imeOptions -> {
                     etField.imeOptions =  attributes.getInt(attr, 0)
 
                 }
-                R.styleable.NormalBorderedStyleEditText_android_inputType -> {
-                    etField.inputType = attributes.getInt(R.styleable.NormalBorderedStyleEditText_android_inputType, EditorInfo.TYPE_CLASS_TEXT)
-                }
-                R.styleable.NormalBorderedStyleEditText_android_maxLines -> {
+                R.styleable.PasswordBorderedStyleEditText_android_maxLines -> {
                     etField.maxLines = attributes.getInt(attr, 1000)
                 }
-                R.styleable.NormalBorderedStyleEditText_android_maxLength -> {
+                R.styleable.PasswordBorderedStyleEditText_android_maxLength -> {
                     etField.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(attributes.getInt(attr, 1000)))
                 }
-                R.styleable.NormalBorderedStyleEditText_fieldError -> {
-                    tvError.text = attributes.getString(R.styleable.NormalBorderedStyleEditText_fieldError)
+                R.styleable.PasswordBorderedStyleEditText_fieldError -> {
+                    tvError.text = attributes.getString(R.styleable.PasswordBorderedStyleEditText_fieldError)
                 }
-                R.styleable.NormalBorderedStyleEditText_fieldTitle -> {
-                    tvTitle.text = attributes.getString(R.styleable.NormalBorderedStyleEditText_fieldTitle)
+                R.styleable.PasswordBorderedStyleEditText_fieldTitle -> {
+                    tvTitle.text = attributes.getString(R.styleable.PasswordBorderedStyleEditText_fieldTitle)
                     tvTitle.visibility = View.VISIBLE
                 }
-                R.styleable.NormalBorderedStyleEditText_fieldErrorTextColor -> {
-                    errorTextColor = attributes.getColor(R.styleable.NormalBorderedStyleEditText_fieldErrorTextColor,
-                            ContextCompat.getColor(context, android.R.color.holo_red_light))
+                R.styleable.PasswordBorderedStyleEditText_fieldErrorTextColor -> {
+                    errorTextColor = attributes.getColor(R.styleable.PasswordBorderedStyleEditText_fieldErrorTextColor,
+                        ContextCompat.getColor(context, android.R.color.holo_red_light))
                     tvError.setTextColor(errorTextColor)
                 }
-                R.styleable.NormalBorderedStyleEditText_fieldTitleTextColor -> {
-                    titleTextColor = attributes.getColor(R.styleable.NormalBorderedStyleEditText_fieldTitleTextColor,
-                            Color.BLACK)
+                R.styleable.PasswordBorderedStyleEditText_fieldTitleTextColor -> {
+                    titleTextColor = attributes.getColor(R.styleable.PasswordBorderedStyleEditText_fieldTitleTextColor,
+                        Color.BLACK)
                     tvTitle.setTextColor(errorTextColor)
                 }
             }
@@ -120,6 +114,6 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
     }
 
     companion object {
-        val TAG = "NormalBorderedStyle"
+        val TAG = "PasswordBorderedStyle"
     }
 }

@@ -6,25 +6,45 @@ import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 
 import com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText;
+import com.github.edwnmrtz.borderedstyleedittext.PasswordBorderedStyleEditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    private NormalBorderedStyleEditText etFirstName;
-    private AppCompatButton btnSetError;
+    private NormalBorderedStyleEditText etMobileNumber;
+    private PasswordBorderedStyleEditText etPassword;
+    private AppCompatButton btnLogin;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        etFirstName = findViewById(R.id.etFirstName);
-        btnSetError = findViewById(R.id.btn_set_error);
+        etMobileNumber = findViewById(R.id.etMobileNumber);
+        etPassword      = findViewById(R.id.etPassword);
+        btnLogin    =  findViewById(R.id.btnLogin);
 
-        btnSetError.setOnClickListener(new View.OnClickListener() {
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                etFirstName.setError("Required!");
+                String mobileNumber = etMobileNumber.getText();
+                String password     = etPassword.getText();
+
+                if(mobileNumber.isEmpty()) {
+                    etMobileNumber.setError("Cannot be empty");
+                }
+
+                if(password.isEmpty()) {
+                    etPassword.setError("Cannot be empty");
+                }
+
+
             }
         });
+
+
+
+
     }
 }

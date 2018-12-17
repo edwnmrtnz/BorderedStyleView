@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BorderedStyleEditText</string>
+    <string name="borderedEditTextPasswordTitlePassword">Password</string>
 </resources>
