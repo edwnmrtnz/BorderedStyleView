@@ -4,6 +4,8 @@
     <declare-styleable name="NormalBorderedStyleEditText">
         <attr name="title" format="string"/>
         <attr name="error" format="string"/>
+        <attr name="titleTextColor" format="color"/>
+        <attr name="ErrorTextColor" format="color"/>
         <attr name="android:imeOptions"/>
         <attr name="android:inputType"/>
         <attr name="android:maxLines"/>

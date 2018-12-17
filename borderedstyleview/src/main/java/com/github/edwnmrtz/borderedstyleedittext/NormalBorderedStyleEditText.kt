@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.TypedArray
 import android.graphics.Color
 import android.support.constraint.ConstraintLayout
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.AppCompatEditText
 import android.support.v7.widget.AppCompatTextView
 import android.text.InputFilter
@@ -19,6 +20,9 @@ class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) : Cons
     private lateinit var tvError: AppCompatTextView
     private lateinit var etField: AppCompatEditText
 
+    private var titleTextColor = Color.BLACK
+    private var errorTextColor: Int = Color.RED
+
     private val attributes: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.NormalBorderedStyleEditText, 0, 0)
 
 
@@ -29,8 +33,6 @@ class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) : Cons
         tvTitle = findViewById(R.id.tvTitle)
         tvError = findViewById(R.id.tvErrorText)
         etField = findViewById(R.id.etField)
-
-
 
         val count = attributes.indexCount
         for (i in 0 until count) {
@@ -62,12 +64,19 @@ class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) : Cons
                     tvTitle.text = attributes.getString(R.styleable.NormalBorderedStyleEditText_title)
                     tvTitle.visibility = View.VISIBLE
                 }
+                R.styleable.NormalBorderedStyleEditText_ErrorTextColor -> {
+                    errorTextColor = attributes.getColor(R.styleable.NormalBorderedStyleEditText_ErrorTextColor,
+                            ContextCompat.getColor(context, android.R.color.holo_red_light))
+                    tvError.setTextColor(errorTextColor)
+                }
+                R.styleable.NormalBorderedStyleEditText_titleTextColor -> {
+                    titleTextColor = attributes.getColor(R.styleable.NormalBorderedStyleEditText_ErrorTextColor,
+                            Color.BLACK)
+                    tvTitle.setTextColor(errorTextColor)
+                }
             }
         }
         attributes.recycle()
-
-
-
     }
 
     fun setError(errorMessage: String) {
@@ -75,6 +84,14 @@ class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) : Cons
         tvError.visibility = View.VISIBLE
         tvError.setTextColor(Color.RED)
         etField.setBackgroundResource(R.drawable.bordered_roundbox_error)
+        tvError.text = errorMessage
+    }
+
+    fun removeError() {
+        tvTitle.setTextColor(titleTextColor)
+        tvError.visibility = View.GONE
+        etField.setBackgroundResource(R.drawable.bordered_roundbox_active)
+        tvError.text = ""
     }
 
     companion object {
