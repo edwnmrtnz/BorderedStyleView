@@ -33,12 +33,12 @@ class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : Constrain
             val attr = attributes.getIndex(i)
             when (attr) {
                 R.styleable.BorderedStyleSpinner_fieldTitle -> {
-                    tvTitle.text = attributes.getString(R.styleable.NormalBorderedStyleEditText_fieldTitle)
+                    tvTitle.text = attributes.getString(R.styleable.BorderedStyleSpinner_fieldTitle)
                     tvTitle.visibility = View.VISIBLE
                 }
 
                 R.styleable.BorderedStyleSpinner_fieldTitleTextColor -> {
-                    titleTextColor = attributes.getColor(R.styleable.NormalBorderedStyleEditText_fieldTitleTextColor,
+                    titleTextColor = attributes.getColor(R.styleable.BorderedStyleSpinner_fieldTitleTextColor,
                         Color.BLACK)
                     tvTitle.setTextColor(titleTextColor)
                 }

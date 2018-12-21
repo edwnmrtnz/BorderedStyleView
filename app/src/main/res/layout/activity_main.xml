@@ -5,48 +5,42 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
         tools:context=".MainActivity">
 
 
     <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
-        app:fieldTitle="Mobile Number"
-        app:fieldError="Invalid Mobile Number"
-        android:inputType="number"
-        android:id="@+id/etMobileNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            app:fieldTitle="First Name"
+            android:id="@+id/normalBorderedStyleEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
-
-    </com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText>
-
-    <com.github.edwnmrtz.borderedstyleedittext.PasswordBorderedStyleEditText
-        android:id="@+id/etPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:fieldError="Invalid Password"
-        app:fieldTitle="Password"
-        app:layout_constraintTop_toBottomOf="@+id/etMobileNumber" />
-
+    <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
+            android:id="@+id/normalBorderedStyleEditText2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:fieldTitle="Last Name"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/normalBorderedStyleEditText"
+            app:layout_constraintStart_toStartOf="@+id/normalBorderedStyleEditText"
+            app:layout_constraintEnd_toStartOf="@+id/normalBorderedStyleEditText3" android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"/>
 
     <com.github.edwnmrtz.borderedstyleedittext.BorderedStyleSpinner
-        android:layout_marginTop="8dp"
-        app:fieldTitle="Suffix"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword"
-        android:id="@+id/spnSuffix"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+            app:fieldTitle="Suffix"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/normalBorderedStyleEditText3"
+            app:layout_constraintEnd_toEndOf="@+id/normalBorderedStyleEditText"
+            app:layout_constraintBottom_toBottomOf="@+id/normalBorderedStyleEditText2"
+            app:layout_constraintTop_toTopOf="@+id/normalBorderedStyleEditText2"/>
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="LOGIN"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spnSuffix" />
 
 
 </android.support.constraint.ConstraintLayout>

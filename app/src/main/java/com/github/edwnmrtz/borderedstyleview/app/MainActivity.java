@@ -20,26 +20,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        etMobileNumber = findViewById(R.id.etMobileNumber);
-        etPassword      = findViewById(R.id.etPassword);
-        btnLogin    =  findViewById(R.id.btnLogin);
-
-
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String mobileNumber = etMobileNumber.getText();
-                String password     = etPassword.getText();
-
-                if(mobileNumber.isEmpty()) {
-                    etMobileNumber.setError("Cannot be empty");
-                }
-
-                if(password.isEmpty()) {
-                    etPassword.setError("Cannot be empty");
-                }
-            }
-        });
 
 
 
