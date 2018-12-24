@@ -24,7 +24,6 @@
 
     <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tvAssistiveText"
-            tools:visibility="visible"
             android:visibility="gone"
             android:textSize="12sp"
             android:textColor="#adadad"

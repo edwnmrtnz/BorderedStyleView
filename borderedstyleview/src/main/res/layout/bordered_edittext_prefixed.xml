@@ -8,47 +8,46 @@
     tools:orientation="horizontal">
 
     <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        tools:text="Mobile Number"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/llMobile"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/llMobile"
-        app:layout_constraintTop_toTopOf="parent"/>
-
+            android:textColor="@color/greyish"
+            tools:text="Password"
+            android:textSize="14sp"
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:labelFor="@+id/tilPassword"
+            app:layout_constraintEnd_toEndOf="@+id/tilPassword"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/llMobile"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginLeft="8dp"/>
 
     <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/tvAssistiveText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        tools:text="Required"
-        android:textSize="12sp"
-        android:visibility="gone"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tvTitle"
-        app:layout_constraintEnd_toEndOf="@+id/llMobile"
-        tools:visibility="visible"
-        android:layout_marginRight="8dp" />
+            android:textColor="@color/greyish"
+            android:id="@+id/tvAssistiveText"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            tools:text="Required"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+            app:layout_constraintEnd_toEndOf="@+id/llMobile" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"/>
 
     <android.support.v7.widget.LinearLayoutCompat
-        android:id="@+id/llMobile"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bordered_roundbox"
-        android:clipToPadding="false"
-        android:gravity="center_vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+            android:id="@+id/llMobile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bordered_roundbox"
+            android:clipToPadding="false"
+            android:gravity="center_vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle">
 
         <android.support.v7.widget.AppCompatTextView
+                android:textColor="@color/greyish"
                 android:id="@+id/tvPrefix"
                 android:textSize="18sp"
                 android:layout_width="wrap_content"
