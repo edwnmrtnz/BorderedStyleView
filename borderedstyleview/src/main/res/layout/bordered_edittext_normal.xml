@@ -8,27 +8,26 @@
         tools:orientation="horizontal">
 
     <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/tvTitle"
-            tools:visibility="visible"
             android:visibility="gone"
+            android:id="@+id/tvTitle"
             android:textSize="14sp"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#adadad"
             tools:text="First Name"
             app:layout_constraintEnd_toEndOf="@+id/etField"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/etField"
-            app:layout_constraintTop_toTopOf="parent"
-    />
+            app:layout_constraintTop_toTopOf="parent"/>
 
     <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/tvErrorText"
+            android:id="@+id/tvAssistiveText"
             tools:visibility="visible"
             android:visibility="gone"
-            android:textColor="@android:color/holo_red_light"
             android:textSize="12sp"
+            android:textColor="#adadad"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             tools:text="Required"

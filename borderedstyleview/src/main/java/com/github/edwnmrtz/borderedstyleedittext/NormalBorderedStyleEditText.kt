@@ -2,7 +2,6 @@ package com.github.edwnmrtz.borderedstyleedittext
 
 import android.content.Context
 import android.content.res.TypedArray
-import android.graphics.Color
 import android.support.constraint.ConstraintLayout
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.AppCompatEditText
@@ -17,19 +16,20 @@ import android.view.inputmethod.EditorInfo
 
 open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
 
-     private var tvTitle: AppCompatTextView
-     private var tvError: AppCompatTextView
+     private var tvFieldLabelTitle: AppCompatTextView
+     private var tvAssistiveText: AppCompatTextView
      private var etField: AppCompatEditText
 
-     private var titleTextColor : Int    = Color.BLACK
-     private var errorTextColor: Int     = Color.RED
+     private var titleTextColor : Int       = ContextCompat.getColor(context,R.color.greyish)
+     private var assistiveTextColor: Int    = ContextCompat.getColor(context,R.color.greyish)
+     private var assistiveText : String?    = ""
 
      private var isError = false
 
     init {
         View.inflate(context, R.layout.bordered_edittext_normal, this)
-        tvTitle = findViewById(R.id.tvTitle)
-        tvError = findViewById(R.id.tvErrorText)
+        tvFieldLabelTitle = findViewById(R.id.tvTitle)
+        tvAssistiveText = findViewById(R.id.tvAssistiveText)
         etField = findViewById(R.id.etField)
 
         val attributes: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.NormalBorderedStyleEditText, 0, 0)
@@ -40,7 +40,6 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
             when (attr) {
                 R.styleable.NormalBorderedStyleEditText_android_imeOptions -> {
                     etField.imeOptions =  attributes.getInt(attr, 0)
-
                 }
                 R.styleable.NormalBorderedStyleEditText_android_inputType -> {
                     etField.inputType = attributes.getInt(R.styleable.NormalBorderedStyleEditText_android_inputType, EditorInfo.TYPE_CLASS_TEXT)
@@ -51,29 +50,31 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
                 R.styleable.NormalBorderedStyleEditText_android_maxLength -> {
                     etField.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(attributes.getInt(attr, 1000)))
                 }
-                R.styleable.NormalBorderedStyleEditText_fieldError -> {
-                    tvError.text = attributes.getString(R.styleable.NormalBorderedStyleEditText_fieldError)
+                R.styleable.NormalBorderedStyleEditText_assistiveText -> {
+                    assistiveText = attributes.getString(R.styleable.NormalBorderedStyleEditText_assistiveText)
+                    tvAssistiveText.text = assistiveText
+                    tvAssistiveText.visibility = View.VISIBLE
                 }
-                R.styleable.NormalBorderedStyleEditText_fieldTitle -> {
-                    tvTitle.text = attributes.getString(R.styleable.NormalBorderedStyleEditText_fieldTitle)
-                    etField.hint = attributes.getString(R.styleable.NormalBorderedStyleEditText_fieldTitle)
-                    tvTitle.visibility = View.VISIBLE
+                R.styleable.NormalBorderedStyleEditText_fieldLabel -> {
+                    tvFieldLabelTitle.text = attributes.getString(R.styleable.NormalBorderedStyleEditText_fieldLabel)
+                    etField.hint = attributes.getString(R.styleable.NormalBorderedStyleEditText_fieldLabel)
+                    tvFieldLabelTitle.visibility = View.VISIBLE
                 }
-                R.styleable.NormalBorderedStyleEditText_fieldErrorTextColor -> {
-                    errorTextColor = attributes.getColor(R.styleable.NormalBorderedStyleEditText_fieldErrorTextColor,
-                            ContextCompat.getColor(context, android.R.color.holo_red_light))
-                    tvError.setTextColor(errorTextColor)
+                R.styleable.NormalBorderedStyleEditText_assistiveTextColor -> {
+                    assistiveTextColor = attributes.getColor(R.styleable.NormalBorderedStyleEditText_assistiveTextColor, assistiveTextColor)
+                    tvAssistiveText.setTextColor(assistiveTextColor)
                 }
-                R.styleable.NormalBorderedStyleEditText_fieldTitleTextColor -> {
-                    titleTextColor = attributes.getColor(R.styleable.NormalBorderedStyleEditText_fieldTitleTextColor,
-                            Color.BLACK)
-                    tvTitle.setTextColor(titleTextColor)
+                R.styleable.NormalBorderedStyleEditText_fieldLabelTextColor-> {
+                    titleTextColor = attributes.getColor(R.styleable.NormalBorderedStyleEditText_fieldLabelTextColor, titleTextColor)
+                    tvFieldLabelTitle.setTextColor(titleTextColor)
                 }
             }
         }
         attributes.recycle()
 
         textChangeListener()
+
+            //setError("Invalid")
     }
 
     private fun textChangeListener() {
@@ -106,18 +107,25 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
 
     fun setError(errorMessage: String) {
         isError = true
-        tvTitle.setTextColor(Color.RED)
-        tvError.visibility = View.VISIBLE
-        tvError.setTextColor(Color.RED)
+        tvFieldLabelTitle.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
+        tvAssistiveText.visibility = View.VISIBLE
+        tvAssistiveText.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
         etField.setBackgroundResource(R.drawable.bordered_roundbox_error)
-        tvError.text = errorMessage
+        tvAssistiveText.text = errorMessage
     }
 
     fun removeError() {
-        tvTitle.setTextColor(titleTextColor)
-        tvError.visibility = View.GONE
+        isError = false
+        tvFieldLabelTitle.setTextColor(titleTextColor)
         etField.setBackgroundResource(R.drawable.bordered_roundbox_active)
-        tvError.text = ""
+        tvAssistiveText.setTextColor(assistiveTextColor)
+
+        if(assistiveText != null) {
+            tvAssistiveText.visibility = View.VISIBLE
+            tvAssistiveText.text = assistiveText
+        } else {
+            tvAssistiveText.visibility = View.GONE
+        }
     }
 
     companion object {

@@ -16,20 +16,21 @@ import android.view.inputmethod.EditorInfo
 
 class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
 
-    private var tvTitle: AppCompatTextView
-    private var tvError: AppCompatTextView
+    private var tvFieldLabelTitle: AppCompatTextView
+    private var tvAssistiveText: AppCompatTextView
     private var etField: AppCompatEditText
-    private var tvPrefix : AppCompatTextView
 
-    private var titleTextColor : Int    = Color.BLACK
-    private var errorTextColor: Int     = Color.RED
+    private var titleTextColor : Int       = ContextCompat.getColor(context,R.color.greyish)
+    private var assistiveTextColor: Int    = ContextCompat.getColor(context,R.color.greyish)
+    private var assistiveText : String?    = ""
+    private var tvPrefix : AppCompatTextView
 
     private var isError = false
 
     init {
         View.inflate(context, R.layout.bordered_edittext_prefixed, this)
-        tvTitle     = findViewById(R.id.tvTitle)
-        tvError     = findViewById(R.id.tvError)
+        tvFieldLabelTitle     = findViewById(R.id.tvTitle)
+        tvAssistiveText    = findViewById(R.id.tvAssistiveText)
         etField     = findViewById(R.id.etField)
         tvPrefix    = findViewById(R.id.tvPrefix)
 
@@ -50,23 +51,21 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
                 R.styleable.PrefixedBorderedStyleEditText_android_maxLength -> {
                     etField.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(attributes.getInt(attr, 1000)))
                 }
-                R.styleable.PrefixedBorderedStyleEditText_fieldError -> {
-                    tvError.text = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_fieldError)
+                R.styleable.PrefixedBorderedStyleEditText_assistiveText-> {
+                    assistiveText = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_assistiveText)
+                    tvAssistiveText.text = assistiveText
+                    tvAssistiveText.visibility = View.VISIBLE                }
+                R.styleable.PrefixedBorderedStyleEditText_fieldLabel -> {
+                    tvFieldLabelTitle.text = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_fieldLabel)
+                    etField.hint = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_fieldLabel)
                 }
-                R.styleable.PrefixedBorderedStyleEditText_fieldTitle -> {
-                    tvTitle.text = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_fieldTitle)
-                    etField.hint = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_fieldTitle)
-                    tvTitle.visibility = View.VISIBLE
+                R.styleable.PrefixedBorderedStyleEditText_assistiveTextColor -> {
+                    assistiveTextColor = attributes.getColor(R.styleable.PrefixedBorderedStyleEditText_assistiveTextColor, assistiveTextColor)
+                    tvAssistiveText.setTextColor(assistiveTextColor)
                 }
-                R.styleable.PrefixedBorderedStyleEditText_fieldErrorTextColor -> {
-                    errorTextColor = attributes.getColor(R.styleable.PrefixedBorderedStyleEditText_fieldErrorTextColor,
-                            ContextCompat.getColor(context, android.R.color.holo_red_light))
-                    tvError.setTextColor(errorTextColor)
-                }
-                R.styleable.PrefixedBorderedStyleEditText_fieldTitleTextColor -> {
-                    titleTextColor = attributes.getColor(R.styleable.PrefixedBorderedStyleEditText_fieldTitleTextColor,
-                            Color.BLACK)
-                    tvTitle.setTextColor(titleTextColor)
+                R.styleable.PrefixedBorderedStyleEditText_fieldLabelTextColor -> {
+                    titleTextColor = attributes.getColor(R.styleable.PrefixedBorderedStyleEditText_fieldLabelTextColor, titleTextColor)
+                    tvFieldLabelTitle.setTextColor(titleTextColor)
                 }
                 R.styleable.PrefixedBorderedStyleEditText_prefix -> {
                     tvPrefix.text = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_prefix)
@@ -108,18 +107,25 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
 
     fun setError(errorMessage: String) {
         isError = true
-        tvTitle.setTextColor(Color.RED)
-        tvError.visibility = View.VISIBLE
-        tvError.setTextColor(Color.RED)
+        tvFieldLabelTitle.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
+        tvAssistiveText.visibility = View.VISIBLE
+        tvAssistiveText.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
         etField.setBackgroundResource(R.drawable.bordered_roundbox_error)
-        tvError.text = errorMessage
+        tvAssistiveText.text = errorMessage
     }
 
     fun removeError() {
-        tvTitle.setTextColor(titleTextColor)
-        tvError.visibility = View.GONE
+        isError = false
+        tvFieldLabelTitle.setTextColor(titleTextColor)
         etField.setBackgroundResource(R.drawable.bordered_roundbox_active)
-        tvError.text = ""
+        tvAssistiveText.setTextColor(assistiveTextColor)
+
+        if(assistiveText != null) {
+            tvAssistiveText.visibility = View.VISIBLE
+            tvAssistiveText.text = assistiveText
+        } else {
+            tvAssistiveText.visibility = View.GONE
+        }
     }
 
     companion object {

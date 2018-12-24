@@ -2,7 +2,6 @@ package com.github.edwnmrtz.borderedstyleedittext
 
 import android.content.Context
 import android.content.res.TypedArray
-import android.graphics.Color
 import android.support.constraint.ConstraintLayout
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.AppCompatEditText
@@ -15,20 +14,21 @@ import android.view.View
 
 class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
 
-    private var tvTitle: AppCompatTextView
-    private var tvError: AppCompatTextView
+    private var tvFieldLabelTitle: AppCompatTextView
+    private var tvAssistiveText: AppCompatTextView
     private var etField: AppCompatEditText
 
-    private var titleTextColor : Int    = Color.BLACK
-    private var errorTextColor: Int     = Color.RED
+    private var titleTextColor : Int       = ContextCompat.getColor(context,R.color.greyish)
+    private var assistiveTextColor: Int    = ContextCompat.getColor(context,R.color.greyish)
+    private var assistiveText : String?    = ""
 
     private var isError = false
 
     init {
         View.inflate(context, R.layout.bordered_edittext_password, this)
-        tvTitle = findViewById(R.id.tvTitle)
-        tvError = findViewById(R.id.tvError)
-        etField = findViewById(R.id.etField)
+        tvFieldLabelTitle               = findViewById(R.id.tvTitle)
+        tvAssistiveText                 = findViewById(R.id.tvAssistiveText)
+        etField                         = findViewById(R.id.etField)
 
         val attributes: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.PasswordBorderedStyleEditText, 0, 0)
         val count = attributes.indexCount
@@ -37,7 +37,6 @@ class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
             when (attr) {
                 R.styleable.PasswordBorderedStyleEditText_android_imeOptions -> {
                     etField.imeOptions =  attributes.getInt(attr, 0)
-
                 }
                 R.styleable.PasswordBorderedStyleEditText_android_maxLines -> {
                     etField.maxLines = attributes.getInt(attr, 1000)
@@ -45,23 +44,22 @@ class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
                 R.styleable.PasswordBorderedStyleEditText_android_maxLength -> {
                     etField.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(attributes.getInt(attr, 1000)))
                 }
-                R.styleable.PasswordBorderedStyleEditText_fieldError -> {
-                    tvError.text = attributes.getString(R.styleable.PasswordBorderedStyleEditText_fieldError)
+                R.styleable.PasswordBorderedStyleEditText_assistiveText-> {
+                    assistiveText = attributes.getString(R.styleable.PasswordBorderedStyleEditText_assistiveText)
+                    tvAssistiveText.text = assistiveText
+                    tvAssistiveText.visibility = View.VISIBLE
                 }
-                R.styleable.PasswordBorderedStyleEditText_fieldTitle -> {
-                    tvTitle.text = attributes.getString(R.styleable.PasswordBorderedStyleEditText_fieldTitle)
-                    etField.hint = attributes.getString(R.styleable.PasswordBorderedStyleEditText_fieldTitle)
-                    tvTitle.visibility = View.VISIBLE
+                R.styleable.PasswordBorderedStyleEditText_fieldLabel-> {
+                    tvFieldLabelTitle.text = attributes.getString(R.styleable.PasswordBorderedStyleEditText_fieldLabel)
+                    etField.hint = attributes.getString(R.styleable.PasswordBorderedStyleEditText_fieldLabel)
                 }
-                R.styleable.PasswordBorderedStyleEditText_fieldErrorTextColor -> {
-                    errorTextColor = attributes.getColor(R.styleable.PasswordBorderedStyleEditText_fieldErrorTextColor,
-                        ContextCompat.getColor(context, android.R.color.holo_red_light))
-                    tvError.setTextColor(errorTextColor)
+                R.styleable.PasswordBorderedStyleEditText_assistiveTextColor -> {
+                    assistiveTextColor = attributes.getColor(R.styleable.PasswordBorderedStyleEditText_assistiveTextColor, assistiveTextColor)
+                    tvAssistiveText.setTextColor(assistiveTextColor)
                 }
-                R.styleable.PasswordBorderedStyleEditText_fieldTitleTextColor -> {
-                    titleTextColor = attributes.getColor(R.styleable.PasswordBorderedStyleEditText_fieldTitleTextColor,
-                        Color.BLACK)
-                    tvTitle.setTextColor(titleTextColor)
+                R.styleable.PasswordBorderedStyleEditText_fieldLabelTextColor -> {
+                    titleTextColor = attributes.getColor(R.styleable.PasswordBorderedStyleEditText_fieldLabelTextColor, titleTextColor)
+                    tvFieldLabelTitle.setTextColor(titleTextColor)
                 }
             }
         }
@@ -100,18 +98,25 @@ class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
 
     fun setError(errorMessage: String) {
         isError = true
-        tvTitle.setTextColor(Color.RED)
-        tvError.visibility = View.VISIBLE
-        tvError.setTextColor(Color.RED)
+        tvFieldLabelTitle.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
+        tvAssistiveText.visibility = View.VISIBLE
+        tvAssistiveText.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
         etField.setBackgroundResource(R.drawable.bordered_roundbox_error)
-        tvError.text = errorMessage
+        tvAssistiveText.text = errorMessage
     }
 
     fun removeError() {
-        tvTitle.setTextColor(titleTextColor)
-        tvError.visibility = View.GONE
+        isError = false
+        tvFieldLabelTitle.setTextColor(titleTextColor)
         etField.setBackgroundResource(R.drawable.bordered_roundbox_active)
-        tvError.text = ""
+        tvAssistiveText.setTextColor(assistiveTextColor)
+
+        if(assistiveText != null) {
+            tvAssistiveText.visibility = View.VISIBLE
+            tvAssistiveText.text = assistiveText
+        } else {
+            tvAssistiveText.visibility = View.GONE
+        }
     }
 
     companion object {

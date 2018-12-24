@@ -9,37 +9,50 @@
 
 
     <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
-            app:fieldTitle="First Name"
-            android:id="@+id/normalBorderedStyleEditText"
+            app:fieldLabel="First Name"
+            app:assistiveText="Required"
+            android:inputType="text"
+            android:imeOptions="actionNext"
+            android:id="@+id/etFirstName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginLeft="24dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="24dp"
             android:layout_marginRight="24dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
 
     <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
+            app:fieldLabel="Last Name"
+            android:imeOptions="actionNext"
             android:id="@+id/normalBorderedStyleEditText2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:fieldTitle="Last Name"
             android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@+id/normalBorderedStyleEditText"
-            app:layout_constraintStart_toStartOf="@+id/normalBorderedStyleEditText"
+            app:layout_constraintTop_toBottomOf="@+id/etFirstName"
+            app:layout_constraintStart_toStartOf="@+id/etFirstName"
             app:layout_constraintEnd_toStartOf="@+id/normalBorderedStyleEditText3" android:layout_marginEnd="24dp"
             android:layout_marginRight="24dp"/>
 
     <com.github.edwnmrtz.borderedstyleedittext.BorderedStyleSpinner
-            app:fieldTitle="Suffix"
+            app:fieldLabel="Suffix"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:id="@+id/normalBorderedStyleEditText3"
-            app:layout_constraintEnd_toEndOf="@+id/normalBorderedStyleEditText"
+            app:layout_constraintEnd_toEndOf="@+id/etFirstName"
             app:layout_constraintBottom_toBottomOf="@+id/normalBorderedStyleEditText2"
             app:layout_constraintTop_toTopOf="@+id/normalBorderedStyleEditText2"/>
+
+
+    <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btnSetError"
+            android:text="SET ERROR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="132dp" android:layout_marginTop="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/normalBorderedStyleEditText2"/>
 
 
 

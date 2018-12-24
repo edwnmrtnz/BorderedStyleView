@@ -22,8 +22,7 @@
 
 
     <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/tvError"
-        android:textColor="@android:color/holo_red_light"
+        android:id="@+id/tvAssistiveText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -50,14 +49,14 @@
         app:layout_constraintTop_toBottomOf="@+id/tvTitle">
 
         <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/tvPrefix"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:selectAllOnFocus="true"
-            android:singleLine="true"
-            tools:text="+63" />
+                android:id="@+id/tvPrefix"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                tools:text="+63" />
 
         <View
             android:id="@+id/dividerMobileNumber"

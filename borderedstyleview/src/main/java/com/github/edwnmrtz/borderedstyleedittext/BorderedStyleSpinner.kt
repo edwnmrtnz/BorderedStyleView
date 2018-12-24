@@ -7,17 +7,15 @@ import android.support.constraint.ConstraintLayout
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.AppCompatSpinner
 import android.support.v7.widget.AppCompatTextView
-import android.text.InputFilter
 import android.util.AttributeSet
 import android.view.View
-import android.view.inputmethod.EditorInfo
 
 class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : ConstraintLayout(context, attrs) {
 
     private var tvTitle : AppCompatTextView
     private var spinner : AppCompatSpinner
 
-    private var titleTextColor : Int = Color.BLACK
+    private var titleTextColor : Int = ContextCompat.getColor(context,R.color.greyish)
 
     private var isError = false
 
@@ -32,14 +30,12 @@ class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : Constrain
         for (i in 0 until count) {
             val attr = attributes.getIndex(i)
             when (attr) {
-                R.styleable.BorderedStyleSpinner_fieldTitle -> {
-                    tvTitle.text = attributes.getString(R.styleable.BorderedStyleSpinner_fieldTitle)
+                R.styleable.BorderedStyleSpinner_fieldLabel -> {
+                    tvTitle.text = attributes.getString(R.styleable.BorderedStyleSpinner_fieldLabel)
                     tvTitle.visibility = View.VISIBLE
                 }
-
-                R.styleable.BorderedStyleSpinner_fieldTitleTextColor -> {
-                    titleTextColor = attributes.getColor(R.styleable.BorderedStyleSpinner_fieldTitleTextColor,
-                        Color.BLACK)
+                R.styleable.BorderedStyleSpinner_fieldLabelTextColor -> {
+                    titleTextColor = attributes.getColor(R.styleable.NormalBorderedStyleEditText_fieldLabelTextColor, titleTextColor)
                     tvTitle.setTextColor(titleTextColor)
                 }
             }
@@ -53,7 +49,7 @@ class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : Constrain
 
     fun setError(errorMessage: String) {
         isError = true
-        tvTitle.setTextColor(Color.RED)
+        tvTitle.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
         spinner.setBackgroundResource(R.drawable.bordered_roundbox_error)
     }
 

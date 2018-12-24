@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <attr name="fieldTitle" format="string"/>
-    <attr name="fieldError" format="string"/>
-    <attr name="fieldTitleTextColor" format="color"/>
-    <attr name="fieldErrorTextColor" format="color"/>
+    <attr name="fieldLabel" format="string"/>
+    <attr name="assistiveText" format="string"/>
+    <attr name="fieldLabelTextColor" format="color"/>
+    <attr name="assistiveTextColor" format="color"/>
 
     <declare-styleable name="NormalBorderedStyleEditText">
-        <attr name="fieldTitle"/>
-        <attr name="fieldError"/>
-        <attr name="fieldTitleTextColor"/>
-        <attr name="fieldErrorTextColor"/>
+        <attr name="fieldLabel"/>
+        <attr name="assistiveText"/>
+        <attr name="fieldLabelTextColor"/>
+        <attr name="assistiveTextColor"/>
 
         <attr name="android:imeOptions"/>
         <attr name="android:inputType"/>
@@ -21,10 +21,10 @@
     </declare-styleable>
 
     <declare-styleable name="PasswordBorderedStyleEditText">
-        <attr name="fieldTitle"/>
-        <attr name="fieldError"/>
-        <attr name="fieldTitleTextColor"/>
-        <attr name="fieldErrorTextColor"/>
+        <attr name="fieldLabel"/>
+        <attr name="assistiveText"/>
+        <attr name="fieldLabelTextColor"/>
+        <attr name="assistiveTextColor"/>
 
         <attr name="android:imeOptions"/>
         <attr name="android:maxLines"/>
@@ -34,10 +34,10 @@
     </declare-styleable>
 
     <declare-styleable name="PrefixedBorderedStyleEditText">
-        <attr name="fieldTitle"/>
-        <attr name="fieldError"/>
-        <attr name="fieldTitleTextColor"/>
-        <attr name="fieldErrorTextColor"/>
+        <attr name="fieldLabel"/>
+        <attr name="assistiveText"/>
+        <attr name="fieldLabelTextColor"/>
+        <attr name="assistiveTextColor"/>
         <attr name="prefix" format ="string"/>
 
         <attr name="android:imeOptions"/>
@@ -48,8 +48,8 @@
     </declare-styleable>
 
     <declare-styleable name="BorderedStyleSpinner">
-        <attr name="fieldTitle"/>
-        <attr name="fieldTitleTextColor"/>
+        <attr name="fieldLabel"/>
+        <attr name="fieldLabelTextColor"/>
 
     </declare-styleable>
 
