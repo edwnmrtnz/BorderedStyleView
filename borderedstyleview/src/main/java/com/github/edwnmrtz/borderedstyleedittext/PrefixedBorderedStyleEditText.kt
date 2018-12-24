@@ -58,6 +58,7 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
                 R.styleable.PrefixedBorderedStyleEditText_fieldLabel -> {
                     tvFieldLabelTitle.text = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_fieldLabel)
                     etField.hint = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_fieldLabel)
+                    tvFieldLabelTitle.visibility = View.VISIBLE
                 }
                 R.styleable.PrefixedBorderedStyleEditText_assistiveTextColor -> {
                     assistiveTextColor = attributes.getColor(R.styleable.PrefixedBorderedStyleEditText_assistiveTextColor, assistiveTextColor)

@@ -52,6 +52,7 @@ class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
                 R.styleable.PasswordBorderedStyleEditText_fieldLabel-> {
                     tvFieldLabelTitle.text = attributes.getString(R.styleable.PasswordBorderedStyleEditText_fieldLabel)
                     etField.hint = attributes.getString(R.styleable.PasswordBorderedStyleEditText_fieldLabel)
+                    tvFieldLabelTitle.visibility - View.VISIBLE
                 }
                 R.styleable.PasswordBorderedStyleEditText_assistiveTextColor -> {
                     assistiveTextColor = attributes.getColor(R.styleable.PasswordBorderedStyleEditText_assistiveTextColor, assistiveTextColor)
