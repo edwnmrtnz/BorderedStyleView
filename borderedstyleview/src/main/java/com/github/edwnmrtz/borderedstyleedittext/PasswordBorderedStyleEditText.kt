@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.TypedArray
 import android.support.constraint.ConstraintLayout
 import android.support.v4.content.ContextCompat
+import android.support.v4.widget.TextViewCompat
 import android.support.v7.widget.AppCompatEditText
 import android.support.v7.widget.AppCompatTextView
 import android.text.Editable
@@ -64,6 +65,9 @@ class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
                 }
                 R.styleable.PrefixedBorderedStyleEditText_android_hint -> {
                     etField.hint = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_android_hint)
+                }
+                R.styleable.PasswordBorderedStyleEditText_android_textAppearance -> {
+                    TextViewCompat.setTextAppearance(etField, attributes.getResourceId(attr, 0))
                 }
             }
         }

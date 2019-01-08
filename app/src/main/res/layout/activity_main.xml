@@ -8,6 +8,7 @@
         tools:context=".MainActivity">
 
     <com.github.edwnmrtz.borderedstyleedittext.PrefixedBorderedStyleEditText
+            android:textAppearance="@style/AppTheme.TextAppearance.Dark.Subheader.18.SemiBold"
             android:hint="9128023904"
             app:prefix="+63"
             android:layout_width="match_parent"

@@ -5,6 +5,7 @@ import android.content.res.TypedArray
 import android.graphics.Color
 import android.support.constraint.ConstraintLayout
 import android.support.v4.content.ContextCompat
+import android.support.v4.widget.TextViewCompat
 import android.support.v7.widget.AppCompatEditText
 import android.support.v7.widget.AppCompatTextView
 import android.support.v7.widget.LinearLayoutCompat
@@ -78,6 +79,10 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
                 }
                 R.styleable.PrefixedBorderedStyleEditText_android_hint -> {
                     etField.hint = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_android_hint)
+                }
+                R.styleable.PrefixedBorderedStyleEditText_android_textAppearance -> {
+                    TextViewCompat.setTextAppearance(tvPrefix, attributes.getResourceId(attr, 0))
+                    TextViewCompat.setTextAppearance(etField, attributes.getResourceId(attr, 0))
                 }
             }
         }
