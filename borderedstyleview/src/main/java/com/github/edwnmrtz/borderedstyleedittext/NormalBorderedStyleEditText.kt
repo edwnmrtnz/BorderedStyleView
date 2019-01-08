@@ -68,6 +68,9 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
                     titleTextColor = attributes.getColor(R.styleable.NormalBorderedStyleEditText_fieldLabelTextColor, titleTextColor)
                     tvFieldLabelTitle.setTextColor(titleTextColor)
                 }
+                R.styleable.PrefixedBorderedStyleEditText_android_hint -> {
+                    etField.hint = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_android_hint)
+                }
             }
         }
         attributes.recycle()

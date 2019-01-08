@@ -9,7 +9,7 @@
 
     <android.support.v7.widget.AppCompatTextView
             android:textColor="@color/greyish"
-            tools:text="Password"
+            tools:text="Mobile Number"
             android:textSize="14sp"
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
@@ -17,10 +17,10 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:labelFor="@+id/tilPassword"
-            app:layout_constraintEnd_toEndOf="@+id/tilPassword"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/llMobile"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginLeft="8dp"/>
+            app:layout_constraintStart_toStartOf="@+id/llPrefixedContainer"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="8dp"/>
 
     <android.support.v7.widget.AppCompatTextView
             android:textColor="@color/greyish"
@@ -31,11 +31,11 @@
             tools:text="Required"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
-            app:layout_constraintEnd_toEndOf="@+id/llMobile" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/llPrefixedContainer" android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"/>
 
     <android.support.v7.widget.LinearLayoutCompat
-            android:id="@+id/llMobile"
+            android:id="@+id/llPrefixedContainer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -58,7 +58,7 @@
                 tools:text="+63" />
 
         <View
-            android:id="@+id/dividerMobileNumber"
+            android:id="@+id/prefixDivider"
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:layout_marginBottom="-10dp"
@@ -68,7 +68,7 @@
             android:background="#ebebeb"/>
 
         <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/etMobile"
+            android:id="@+id/etField"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

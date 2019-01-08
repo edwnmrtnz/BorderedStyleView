@@ -7,6 +7,7 @@ import android.support.constraint.ConstraintLayout
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.AppCompatEditText
 import android.support.v7.widget.AppCompatTextView
+import android.support.v7.widget.LinearLayoutCompat
 import android.text.Editable
 import android.text.InputFilter
 import android.text.TextWatcher
@@ -23,16 +24,20 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
     private var titleTextColor : Int       = ContextCompat.getColor(context,R.color.greyish)
     private var assistiveTextColor: Int    = ContextCompat.getColor(context,R.color.greyish)
     private var assistiveText : String?    = ""
-    private var tvPrefix : AppCompatTextView
+    private var llPrefixedContainer : LinearLayoutCompat
+    private var prefixDivider : View
 
+    private var tvPrefix : AppCompatTextView
     private var isError = false
 
     init {
         View.inflate(context, R.layout.bordered_edittext_prefixed, this)
-        tvFieldLabelTitle     = findViewById(R.id.tvTitle)
-        tvAssistiveText    = findViewById(R.id.tvAssistiveText)
-        etField     = findViewById(R.id.etField)
-        tvPrefix    = findViewById(R.id.tvPrefix)
+        tvFieldLabelTitle       = findViewById(R.id.tvTitle)
+        tvAssistiveText         = findViewById(R.id.tvAssistiveText)
+        etField                 = findViewById(R.id.etField)
+        tvPrefix                = findViewById(R.id.tvPrefix)
+        llPrefixedContainer     = findViewById(R.id.llPrefixedContainer)
+        prefixDivider           = findViewById(R.id.prefixDivider)
 
         val attributes: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.PrefixedBorderedStyleEditText, 0, 0)
         val count = attributes.indexCount
@@ -42,7 +47,7 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
                 R.styleable.PrefixedBorderedStyleEditText_android_imeOptions -> {
                     etField.imeOptions =  attributes.getInt(attr, 0)
                 }
-                R.styleable.NormalBorderedStyleEditText_android_inputType -> {
+                R.styleable.PrefixedBorderedStyleEditText_android_inputType -> {
                     etField.inputType = attributes.getInt(R.styleable.NormalBorderedStyleEditText_android_inputType, EditorInfo.TYPE_CLASS_TEXT)
                 }
                 R.styleable.PrefixedBorderedStyleEditText_android_maxLines -> {
@@ -71,6 +76,9 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
                 R.styleable.PrefixedBorderedStyleEditText_prefix -> {
                     tvPrefix.text = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_prefix)
                 }
+                R.styleable.PrefixedBorderedStyleEditText_android_hint -> {
+                    etField.hint = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_android_hint)
+                }
             }
         }
         attributes.recycle()
@@ -96,6 +104,8 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
             }
 
         })
+
+//        setError("Wrong")
     }
 
     fun getText() : String {
@@ -111,14 +121,16 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
         tvFieldLabelTitle.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
         tvAssistiveText.visibility = View.VISIBLE
         tvAssistiveText.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
-        etField.setBackgroundResource(R.drawable.bordered_roundbox_error)
+        llPrefixedContainer.setBackgroundResource(R.drawable.bordered_roundbox_error)
+        prefixDivider.setBackgroundColor(ContextCompat.getColor(context, R.color.reddish_pink))
         tvAssistiveText.text = errorMessage
     }
 
     fun removeError() {
         isError = false
         tvFieldLabelTitle.setTextColor(titleTextColor)
-        etField.setBackgroundResource(R.drawable.bordered_roundbox_active)
+        llPrefixedContainer.setBackgroundResource(R.drawable.bordered_roundbox_active)
+        prefixDivider.setBackgroundColor(Color.parseColor("#ebebeb"))
         tvAssistiveText.setTextColor(assistiveTextColor)
 
         if(assistiveText != null) {
