@@ -5,6 +5,8 @@ import android.content.res.TypedArray
 import android.graphics.Color
 import android.support.constraint.ConstraintLayout
 import android.support.v4.content.ContextCompat
+import android.support.v4.widget.TextViewCompat
+import android.support.v7.widget.AppCompatEditText
 import android.support.v7.widget.AppCompatSpinner
 import android.support.v7.widget.AppCompatTextView
 import android.util.AttributeSet
@@ -18,11 +20,13 @@ class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : Constrain
     private var titleTextColor : Int = ContextCompat.getColor(context,R.color.greyish)
 
     private var isError = false
+    private var etField : AppCompatEditText
 
     init {
         View.inflate(context, R.layout.bordered_spinner, this)
         tvTitle = findViewById(R.id.tvTitle)
         spinner = findViewById(R.id.spinner)
+        etField = findViewById(R.id.etField)
 
         val attributes: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.BorderedStyleSpinner, 0, 0)
 
@@ -37,6 +41,9 @@ class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : Constrain
                 R.styleable.BorderedStyleSpinner_fieldLabelTextColor -> {
                     titleTextColor = attributes.getColor(R.styleable.NormalBorderedStyleEditText_fieldLabelTextColor, titleTextColor)
                     tvTitle.setTextColor(titleTextColor)
+                }
+                R.styleable.BorderedStyleSpinner_android_textAppearance -> {
+                    TextViewCompat.setTextAppearance(etField, attributes.getResourceId(attr, 0))
                 }
             }
         }

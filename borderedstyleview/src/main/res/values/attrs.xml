@@ -55,6 +55,7 @@
     <declare-styleable name="BorderedStyleSpinner">
         <attr name="fieldLabel"/>
         <attr name="fieldLabelTextColor"/>
+        <attr name="android:textAppearance"/>
     </declare-styleable>
 
 

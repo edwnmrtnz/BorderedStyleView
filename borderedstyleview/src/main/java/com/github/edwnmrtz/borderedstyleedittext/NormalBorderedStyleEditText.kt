@@ -58,7 +58,7 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
                 }
                 R.styleable.NormalBorderedStyleEditText_fieldLabel -> {
                     tvFieldLabelTitle.text = attributes.getString(R.styleable.NormalBorderedStyleEditText_fieldLabel)
-                    etField.hint = attributes.getString(R.styleable.NormalBorderedStyleEditText_fieldLabel)
+//                    etField.hint = attributes.getString(R.styleable.NormalBorderedStyleEditText_fieldLabel)
                     tvFieldLabelTitle.visibility = View.VISIBLE
                 }
                 R.styleable.NormalBorderedStyleEditText_assistiveTextColor -> {
