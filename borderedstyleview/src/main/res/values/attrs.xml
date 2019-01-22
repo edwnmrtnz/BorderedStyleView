@@ -58,7 +58,7 @@
         <attr name="android:textAppearance"/>
     </declare-styleable>
 
-    <declare-styleable name="AutoCompleteBorderedStyleEditText">
+    <declare-styleable name="AutoCompleteBorderedStyleTextView">
         <attr name="fieldLabel"/>
         <attr name="assistiveText"/>
         <attr name="fieldLabelTextColor"/>

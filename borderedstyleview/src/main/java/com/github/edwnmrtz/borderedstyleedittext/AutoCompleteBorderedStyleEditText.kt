@@ -5,6 +5,7 @@ import android.content.res.TypedArray
 import android.support.constraint.ConstraintLayout
 import android.support.v4.content.ContextCompat
 import android.support.v4.widget.TextViewCompat
+import android.support.v7.widget.AppCompatAutoCompleteTextView
 import android.support.v7.widget.AppCompatEditText
 import android.support.v7.widget.AppCompatTextView
 import android.text.Editable
@@ -18,7 +19,7 @@ class AutoCompleteBorderedStyleEditText (context: Context, attrs: AttributeSet) 
 
     private var tvFieldLabelTitle: AppCompatTextView
     private var tvAssistiveText: AppCompatTextView
-    private var etField: AppCompatEditText
+    private var etField: AppCompatAutoCompleteTextView
 
     private var titleTextColor : Int       = ContextCompat.getColor(context,R.color.greyish)
     private var assistiveTextColor: Int    = ContextCompat.getColor(context,R.color.greyish)
@@ -27,51 +28,48 @@ class AutoCompleteBorderedStyleEditText (context: Context, attrs: AttributeSet) 
     private var isError = false
 
     init {
-        View.inflate(context, R.layout.bordered_edittext_autocomplete, this)
+        View.inflate(context, R.layout.bordered_textview_autocomplete, this)
         tvFieldLabelTitle = findViewById(R.id.tvTitle)
         tvAssistiveText = findViewById(R.id.tvAssistiveText)
         etField = findViewById(R.id.etField)
 
-        val attributes: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.AutoCompleteBorderedStyleEditText, 0, 0)
+        val attributes: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.AutoCompleteBorderedStyleTextView, 0, 0)
 
         val count = attributes.indexCount
         for (i in 0 until count) {
             val attr = attributes.getIndex(i)
             when (attr) {
-                R.styleable.AutoCompleteBorderedStyleEditText_android_imeOptions -> {
-                    etField.imeOptions =  attributes.getInt(attr, 0)
+                R.styleable.AutoCompleteBorderedStyleTextView_android_inputType -> {
+                    etField.inputType = attributes.getInt(R.styleable.AutoCompleteBorderedStyleTextView_android_inputType, EditorInfo.TYPE_CLASS_TEXT)
                 }
-                R.styleable.AutoCompleteBorderedStyleEditText_android_inputType -> {
-                    etField.inputType = attributes.getInt(R.styleable.AutoCompleteBorderedStyleEditText_android_inputType, EditorInfo.TYPE_CLASS_TEXT)
-                }
-                R.styleable.AutoCompleteBorderedStyleEditText_android_maxLines -> {
+                R.styleable.AutoCompleteBorderedStyleTextView_android_maxLines -> {
                     etField.maxLines = attributes.getInt(attr, 1000)
                 }
-                R.styleable.AutoCompleteBorderedStyleEditText_android_maxLength -> {
+                R.styleable.AutoCompleteBorderedStyleTextView_android_maxLength -> {
                     etField.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(attributes.getInt(attr, 1000)))
                 }
-                R.styleable.AutoCompleteBorderedStyleEditText_assistiveText -> {
-                    assistiveText = attributes.getString(R.styleable.AutoCompleteBorderedStyleEditText_assistiveText)
+                R.styleable.AutoCompleteBorderedStyleTextView_assistiveText -> {
+                    assistiveText = attributes.getString(R.styleable.AutoCompleteBorderedStyleTextView_assistiveText)
                     tvAssistiveText.text = assistiveText
                     tvAssistiveText.visibility = View.VISIBLE
                 }
-                R.styleable.AutoCompleteBorderedStyleEditText_fieldLabel -> {
-                    tvFieldLabelTitle.text = attributes.getString(R.styleable.AutoCompleteBorderedStyleEditText_fieldLabel)
+                R.styleable.AutoCompleteBorderedStyleTextView_fieldLabel -> {
+                    tvFieldLabelTitle.text = attributes.getString(R.styleable.AutoCompleteBorderedStyleTextView_fieldLabel)
 //                    etField.hint = attributes.getString(R.styleable.AutoCompleteBorderedStyleEditText_fieldLabel)
                     tvFieldLabelTitle.visibility = View.VISIBLE
                 }
-                R.styleable.AutoCompleteBorderedStyleEditText_assistiveTextColor -> {
-                    assistiveTextColor = attributes.getColor(R.styleable.AutoCompleteBorderedStyleEditText_assistiveTextColor, assistiveTextColor)
+                R.styleable.AutoCompleteBorderedStyleTextView_assistiveTextColor -> {
+                    assistiveTextColor = attributes.getColor(R.styleable.AutoCompleteBorderedStyleTextView_assistiveTextColor, assistiveTextColor)
                     tvAssistiveText.setTextColor(assistiveTextColor)
                 }
-                R.styleable.AutoCompleteBorderedStyleEditText_fieldLabelTextColor-> {
-                    titleTextColor = attributes.getColor(R.styleable.AutoCompleteBorderedStyleEditText_fieldLabelTextColor, titleTextColor)
+                R.styleable.AutoCompleteBorderedStyleTextView_fieldLabelTextColor-> {
+                    titleTextColor = attributes.getColor(R.styleable.AutoCompleteBorderedStyleTextView_fieldLabelTextColor, titleTextColor)
                     tvFieldLabelTitle.setTextColor(titleTextColor)
                 }
-                R.styleable.AutoCompleteBorderedStyleEditText_android_hint -> {
+                R.styleable.AutoCompleteBorderedStyleTextView_android_hint -> {
                     etField.hint = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_android_hint)
                 }
-                R.styleable.AutoCompleteBorderedStyleEditText_android_textAppearance -> {
+                R.styleable.AutoCompleteBorderedStyleTextView_android_textAppearance -> {
                     TextViewCompat.setTextAppearance(etField, attributes.getResourceId(attr, 0))
                 }
             }
@@ -107,7 +105,7 @@ class AutoCompleteBorderedStyleEditText (context: Context, attrs: AttributeSet) 
         return etField.text.toString()
     }
 
-    fun getEditText(): AppCompatEditText {
+    fun getAutoCompleteTextView(): AppCompatAutoCompleteTextView {
         return etField
     }
 

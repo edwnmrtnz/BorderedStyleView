@@ -9,29 +9,6 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-    <com.github.edwnmrtz.borderedstyleedittext.PrefixedBorderedStyleEditText
-            android:hint="9128023904"
-            app:prefix="+63"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
-            android:id="@+id/etLastName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginRight="24dp"
-            android:imeOptions="actionNext"
-            android:inputType="text"
-            android:maxLines="1"
-            app:fieldLabel="Last Name"/>
-
-
-
-    <com.github.edwnmrtz.borderedstyleedittext.BorderedStyleSpinner
-            android:id="@+id/etSuffix"
-            android:layout_width="104dp"
-            android:layout_height="wrap_content"
-            app:fieldLabel="Suffix"/>
+    <com.github.edwnmrtz.borderedstyleedittext.AutoCompleteBorderedStyleEditText android:layout_width="match_parent"
+                                                                                 android:layout_height="wrap_content"/>
 </android.support.v7.widget.LinearLayoutCompat>
