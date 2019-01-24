@@ -11,8 +11,13 @@ import android.text.Editable
 import android.text.InputFilter
 import android.text.TextWatcher
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.widget.TextView
+import android.content.res.ColorStateList
+import android.graphics.Typeface
+import android.support.v4.content.res.ResourcesCompat
 
 
 open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
@@ -29,9 +34,9 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
 
     init {
         View.inflate(context, R.layout.bordered_edittext_normal, this)
-        tvFieldLabelTitle = findViewById(R.id.tvTitle)
-        tvAssistiveText = findViewById(R.id.tvAssistiveText)
-        etField = findViewById(R.id.etField)
+        tvFieldLabelTitle   = findViewById(R.id.tvTitle)
+        tvAssistiveText     = findViewById(R.id.tvAssistiveText)
+        etField             = findViewById(R.id.etField)
 
         val attributes: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.NormalBorderedStyleEditText, 0, 0)
 
@@ -58,7 +63,6 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
                 }
                 R.styleable.NormalBorderedStyleEditText_fieldLabel -> {
                     tvFieldLabelTitle.text = attributes.getString(R.styleable.NormalBorderedStyleEditText_fieldLabel)
-//                    etField.hint = attributes.getString(R.styleable.NormalBorderedStyleEditText_fieldLabel)
                     tvFieldLabelTitle.visibility = View.VISIBLE
                 }
                 R.styleable.NormalBorderedStyleEditText_assistiveTextColor -> {
@@ -70,10 +74,23 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
                     tvFieldLabelTitle.setTextColor(titleTextColor)
                 }
                 R.styleable.NormalBorderedStyleEditText_android_hint -> {
-                    etField.hint = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_android_hint)
+                    etField.hint = attributes.getString(R.styleable.NormalBorderedStyleEditText_android_hint)
                 }
+
                 R.styleable.NormalBorderedStyleEditText_android_textAppearance -> {
-                    TextViewCompat.setTextAppearance(etField, attributes.getResourceId(attr, 0))
+                    val appearance = attributes.getResourceId(attr, 0)
+                    TextViewCompat.setTextAppearance(etField, appearance)
+                }
+
+
+                R.styleable.NormalBorderedStyleEditText_android_focusableInTouchMode -> {
+                    etField.isFocusableInTouchMode = attributes.getBoolean(attr, true)
+                }
+                R.styleable.NormalBorderedStyleEditText_android_clickable -> {
+                    etField.isClickable = attributes.getBoolean(attr, true)
+                }
+                R.styleable.NormalBorderedStyleEditText_android_focusable -> {
+                    etField.isFocusable = attributes.getBoolean(attr, true)
                 }
             }
         }
@@ -132,6 +149,17 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
             tvAssistiveText.text = assistiveText
         } else {
             tvAssistiveText.visibility = View.GONE
+        }
+    }
+
+
+
+    private fun setTypefaceFromAttrs(textView: TextView, styleIndex: Int) {
+        textView.typeface = Typeface.DEFAULT
+        if (styleIndex == 1) {
+            textView.setTypeface(null, Typeface.BOLD)
+        } else {
+            textView.setTypeface(null, Typeface.NORMAL)
         }
     }
 

@@ -18,6 +18,10 @@
         <attr name="android:maxLength"/>
         <attr name="android:hint"/>
         <attr name="android:textAppearance"/>
+        <attr name="android:focusable"/>
+        <attr name="android:clickable"/>
+        <attr name="android:focusableInTouchMode"/>
+
     </declare-styleable>
 
     <declare-styleable name="PasswordBorderedStyleEditText">
@@ -49,6 +53,9 @@
         <attr name="android:inputType"/>
         <attr name="android:hint"/>
         <attr name="android:textAppearance"/>
+        <attr name="android:focusable"/>
+        <attr name="android:clickable"/>
+        <attr name="android:focusableInTouchMode"/>
 
     </declare-styleable>
 

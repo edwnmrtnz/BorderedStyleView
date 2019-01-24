@@ -38,6 +38,7 @@
 
     <android.support.v7.widget.AppCompatAutoCompleteTextView
             android:id="@+id/etField"
+            android:textSize="18sp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/bordered_roundbox"

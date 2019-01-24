@@ -84,6 +84,16 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
                     TextViewCompat.setTextAppearance(tvPrefix, attributes.getResourceId(attr, 0))
                     TextViewCompat.setTextAppearance(etField, attributes.getResourceId(attr, 0))
                 }
+                R.styleable.PrefixedBorderedStyleEditText_android_focusableInTouchMode -> {
+                    etField.isFocusableInTouchMode = attributes.getBoolean(attr, true)
+                }
+                R.styleable.PrefixedBorderedStyleEditText_android_clickable -> {
+                    etField.isClickable = attributes.getBoolean(attr, true)
+                }
+                R.styleable.PrefixedBorderedStyleEditText_android_focusable -> {
+                    etField.isFocusable = attributes.getBoolean(attr, true)
+                }
+
             }
         }
         attributes.recycle()

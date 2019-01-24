@@ -9,6 +9,18 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-    <com.github.edwnmrtz.borderedstyleedittext.AutoCompleteBorderedStyleEditText android:layout_width="match_parent"
-                                                                                 android:layout_height="wrap_content"/>
+    <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
+            android:hint="Hello"
+            app:fieldLabel="Sample"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
+            android:focusable="false"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            app:fieldLabel="Sample Again"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
 </android.support.v7.widget.LinearLayoutCompat>
