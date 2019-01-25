@@ -11,13 +11,10 @@ import android.text.Editable
 import android.text.InputFilter
 import android.text.TextWatcher
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
-import android.content.res.ColorStateList
 import android.graphics.Typeface
-import android.support.v4.content.res.ResourcesCompat
 
 
 open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
@@ -109,15 +106,12 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
                     isError = false
                 }
             }
-
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 //Ignore
             }
-
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 //Ignore
             }
-
         })
     }
 
@@ -127,6 +121,16 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
 
     fun getEditText(): AppCompatEditText {
         return etField
+    }
+
+    fun enable() {
+        etField.isEnabled = true
+        etField.setBackgroundResource(R.drawable.bordered_roundbox_active)
+    }
+
+    fun disable() {
+        etField.isEnabled = false
+        etField.setBackgroundResource(R.drawable.bordered_roundbox_disabled)
     }
 
     fun setError(errorMessage: String) {

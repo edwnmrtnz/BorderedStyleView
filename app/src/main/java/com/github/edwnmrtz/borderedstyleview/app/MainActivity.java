@@ -18,7 +18,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        etFirstName = findViewById(R.id.enable);
 
+        etFirstName.disable();
 
 
     }

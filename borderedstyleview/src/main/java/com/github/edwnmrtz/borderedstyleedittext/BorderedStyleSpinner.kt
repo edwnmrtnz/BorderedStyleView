@@ -64,4 +64,14 @@ class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : Constrain
         spinner.setBackgroundResource(R.drawable.bordered_roundbox_active)
     }
 
+    fun enable() {
+        etField.isEnabled = true
+        etField.setBackgroundResource(R.drawable.bordered_roundbox_active)
+    }
+
+    fun disable() {
+        etField.isEnabled = false
+        etField.setBackgroundResource(R.drawable.bordered_roundbox_disabled)
+    }
+
 }

@@ -10,6 +10,7 @@
         tools:context=".MainActivity">
 
     <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
+            android:id="@+id/enable"
             android:hint="Hello"
             app:fieldLabel="Sample"
             android:layout_width="match_parent"

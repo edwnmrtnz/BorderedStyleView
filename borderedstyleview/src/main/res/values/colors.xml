@@ -2,4 +2,5 @@
 <resources>
     <color name="greyish">#adadad</color>
     <color name="reddish_pink">#ff2a4e</color>
+    <color name="disabled_state">#f5f5f5</color>
 </resources>

@@ -127,6 +127,16 @@ class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
         }
     }
 
+    fun enable() {
+        etField.isEnabled = true
+        etField.setBackgroundResource(R.drawable.bordered_roundbox_active)
+    }
+
+    fun disable() {
+        etField.isEnabled = false
+        etField.setBackgroundResource(R.drawable.bordered_roundbox_disabled)
+    }
+
     companion object {
         val TAG = "PasswordBorderedStyle"
     }
