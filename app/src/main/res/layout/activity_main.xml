@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.LinearLayoutCompat
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,19 +9,18 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-    <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
-            android:id="@+id/enable"
-            android:hint="Hello"
-            app:fieldLabel="Sample"
+    <FrameLayout
+            android:layout_above="@id/btnReplace"
+            android:id="@+id/flContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:layout_alignParentBottom="true"
+            android:text="Replace"
+            android:id="@+id/btnReplace"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-    <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
-            android:focusable="false"
-            android:clickable="false"
-            android:focusableInTouchMode="false"
-            app:fieldLabel="Sample Again"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-</android.support.v7.widget.LinearLayoutCompat>
+</RelativeLayout>

@@ -2,11 +2,11 @@ package com.github.edwnmrtz.borderedstyleedittext
 
 import android.content.Context
 import android.content.res.TypedArray
-import android.support.constraint.ConstraintLayout
-import android.support.v4.content.ContextCompat
-import android.support.v4.widget.TextViewCompat
-import android.support.v7.widget.AppCompatEditText
-import android.support.v7.widget.AppCompatTextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
+import androidx.core.widget.TextViewCompat
+import androidx.appcompat.widget.AppCompatEditText
+import androidx.appcompat.widget.AppCompatTextView
 import android.text.Editable
 import android.text.InputFilter
 import android.text.TextWatcher
@@ -15,6 +15,7 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import android.graphics.Typeface
+import android.view.LayoutInflater
 
 
 open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
@@ -30,6 +31,8 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
      private var isError = false
 
     init {
+ //       LayoutInflater.from(context).inflate(R.layout.bordered_edittext_normal, this)
+
         View.inflate(context, R.layout.bordered_edittext_normal, this)
         tvFieldLabelTitle   = findViewById(R.id.tvTitle)
         tvAssistiveText     = findViewById(R.id.tvAssistiveText)
