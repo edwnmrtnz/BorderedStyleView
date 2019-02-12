@@ -37,7 +37,6 @@
             android:layout_marginRight="8dp"/>
 
     <androidx.appcompat.widget.AppCompatEditText
-            android:textAppearance="@style/BorderStyleView.TextAppearance.Field.Default"
             android:id="@+id/etField"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

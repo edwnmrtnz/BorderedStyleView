@@ -49,7 +49,7 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
                     etField.imeOptions =  attributes.getInt(attr, 0)
                 }
                 R.styleable.PrefixedBorderedStyleEditText_android_inputType -> {
-                    etField.inputType = attributes.getInt(R.styleable.NormalBorderedStyleEditText_android_inputType, EditorInfo.TYPE_CLASS_TEXT)
+                    etField.inputType = attributes.getInt(R.styleable.NormalBorderedStyleEditText_android_inputType, EditorInfo.TYPE_TEXT_VARIATION_NORMAL)
                 }
                 R.styleable.PrefixedBorderedStyleEditText_android_maxLines -> {
                     etField.maxLines = attributes.getInt(attr, 1000)

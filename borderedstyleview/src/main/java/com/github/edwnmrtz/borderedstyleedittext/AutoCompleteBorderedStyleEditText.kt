@@ -40,7 +40,7 @@ class AutoCompleteBorderedStyleEditText (context: Context, attrs: AttributeSet) 
             val attr = attributes.getIndex(i)
             when (attr) {
                 R.styleable.AutoCompleteBorderedStyleTextView_android_inputType -> {
-                    etField.inputType = attributes.getInt(R.styleable.AutoCompleteBorderedStyleTextView_android_inputType, EditorInfo.TYPE_CLASS_TEXT)
+                    etField.inputType = attributes.getInt(R.styleable.AutoCompleteBorderedStyleTextView_android_inputType, EditorInfo.TYPE_TEXT_VARIATION_NORMAL)
                 }
                 R.styleable.AutoCompleteBorderedStyleTextView_android_maxLines -> {
                     etField.maxLines = attributes.getInt(attr, 1000)

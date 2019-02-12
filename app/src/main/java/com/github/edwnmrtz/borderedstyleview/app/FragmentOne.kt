@@ -31,8 +31,6 @@ class FragmentOne : Fragment() {
 
         etSample = view.findViewById(R.id.etSample)
 
-        etSample.getEditText().setText("Hello")
-
         return view
     }
 

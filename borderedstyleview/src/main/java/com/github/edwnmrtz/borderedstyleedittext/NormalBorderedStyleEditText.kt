@@ -48,7 +48,7 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
                     etField.imeOptions =  attributes.getInt(attr, 0)
                 }
                 R.styleable.NormalBorderedStyleEditText_android_inputType -> {
-                    etField.inputType = attributes.getInt(R.styleable.NormalBorderedStyleEditText_android_inputType, EditorInfo.TYPE_CLASS_TEXT)
+                    etField.inputType = attributes.getInt(R.styleable.NormalBorderedStyleEditText_android_inputType, EditorInfo.TYPE_TEXT_VARIATION_NORMAL)
                 }
                 R.styleable.NormalBorderedStyleEditText_android_maxLines -> {
                     etField.maxLines = attributes.getInt(attr, 1000)
