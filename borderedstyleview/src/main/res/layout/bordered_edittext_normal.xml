@@ -37,6 +37,7 @@
             android:layout_marginRight="8dp"/>
 
     <androidx.appcompat.widget.AppCompatEditText
+            android:inputType="text"
             android:id="@+id/etField"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
