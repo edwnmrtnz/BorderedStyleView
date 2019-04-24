@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="BorderStyleView.TextAppearance.Field.Default" parent="TextAppearance.AppCompat.Caption">
-        <item name="android:textSize">18sp</item>
-        <item name="android:textColor">?android:attr/colorPrimary</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-    </style>
-
-</resources>

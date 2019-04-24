@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
+import com.github.edwnmrtz.borderedstyleedittext.PasswordBorderedStyleEditText
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -20,7 +21,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class FragmentOne : Fragment() {
 
-    private lateinit var etSample : NormalBorderedStyleEditText
+    private lateinit var etSample : PasswordBorderedStyleEditText
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
