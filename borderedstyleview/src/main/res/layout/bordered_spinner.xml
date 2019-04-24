@@ -9,7 +9,6 @@
 
     <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvTitle"
-            android:visibility="gone"
             android:textSize="14sp"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
@@ -20,18 +19,21 @@
             app:layout_constraintEnd_toEndOf="@+id/etField"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/etField"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" android:visibility="gone"/>
 
     <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvAssistiveText"
-            android:visibility="gone"
+            android:visibility="visible"
+            android:gravity="end"
             android:textSize="12sp"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             tools:text="Required"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/tvTitle" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/etField" android:layout_marginRight="8dp"/>
+            app:layout_constraintEnd_toEndOf="@+id/etField" android:layout_marginRight="8dp"
+            app:layout_constraintStart_toEndOf="@+id/tvTitle" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"/>
 
     <androidx.appcompat.widget.AppCompatEditText
             android:focusable="false"
@@ -39,12 +41,12 @@
             android:id="@+id/etField"
             android:layout_width="0dp"
             android:minWidth="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@drawable/bordered_roundbox"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" app:layout_constraintBottom_toBottomOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatImageView
             android:focusableInTouchMode="false"
