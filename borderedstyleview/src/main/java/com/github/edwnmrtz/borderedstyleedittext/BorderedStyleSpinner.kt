@@ -56,12 +56,12 @@ class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : Constrain
     fun setError(errorMessage: String) {
         isError = true
         tvTitle.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
-        spinner.setBackgroundResource(R.drawable.bordered_roundbox_error)
+        etField.setBackgroundResource(R.drawable.bordered_roundbox_error)
     }
 
     fun removeError() {
         tvTitle.setTextColor(titleTextColor)
-        spinner.setBackgroundResource(R.drawable.bordered_roundbox_active)
+        etField.setBackgroundResource(R.drawable.bordered_roundbox_active)
     }
 
     fun enable() {
