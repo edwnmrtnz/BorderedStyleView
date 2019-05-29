@@ -29,16 +29,22 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.appcompat:appcompat:1.1.0-alpha04'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha4'
-    implementation 'com.google.android.material:material:1.1.0-alpha05'
+    // KOTLIN
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    // APPCOMPAT
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    // MATERIALIZE
+    implementation "com.google.android.material:material:$material_version"
+    // CONSTRAINT LAYOUT
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    // JUNIT
+    testImplementation "junit:junit:$junit_version"
+    // RUNNER
+    androidTestImplementation "androidx.test:runner:$runner_version"
+    // ESPRESSO
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core_version"
 
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation project(':borderedstyleview')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {
     mavenCentral()
