@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
+
 import com.github.edwnmrtz.borderedstyleedittext.PasswordBorderedStyleEditText
 
 
@@ -30,7 +30,7 @@ class FragmentOne : Fragment() {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_fragment_one, container, false)
 
-        etSample = view.findViewById(R.id.etSample)
+
 
         return view
     }

@@ -2,14 +2,61 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
-             android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:layout_height="match_parent"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:padding="48dp"
              tools:context=".FragmentOne">
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical"
+                  tools:ignore="UselessParent">
 
-    <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
-            android:inputType="number"
-            app:fieldLabel="Hello"
-            android:id="@+id/etSample"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
+                android:inputType="text"
+                app:fieldLabel="NormalBorderedStyleEditText | Text"
+                android:id="@+id/etSample"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
+                android:inputType="number"
+                app:fieldLabel="NormalBorderedStyleEditText | Number"
+                android:id="@+id/etNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <com.github.edwnmrtz.borderedstyleedittext.PasswordBorderedStyleEditText
+                android:inputType="text"
+                app:fieldLabel="PasswordBorderedStyleEditText"
+                android:id="@+id/etPassword"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <com.github.edwnmrtz.borderedstyleedittext.AutoCompleteBorderedStyleEditText
+                android:inputType="text"
+                app:fieldLabel="AutoCompleteBorderedStyleEditText"
+                android:id="@+id/etAutoComplete"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <com.github.edwnmrtz.borderedstyleedittext.BorderedStyleSpinner
+                android:inputType="text"
+                app:fieldLabel="BorderedStyleSpinner"
+                android:id="@+id/borderedStyleSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="#FFF"
+                android:text="Button"/>
+
+    </LinearLayout>
+
 
 </FrameLayout>
