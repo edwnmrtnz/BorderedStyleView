@@ -6,6 +6,7 @@
              xmlns:app="http://schemas.android.com/apk/res-auto"
              android:padding="48dp"
              tools:context=".FragmentOne">
+  
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="match_parent"
                   android:orientation="vertical"
@@ -14,7 +15,6 @@
         <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
                 android:inputType="text"
                 app:fieldLabel="NormalBorderedStyleEditText | Text"
-                android:id="@+id/etSample"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
@@ -47,16 +47,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-        <com.google.android.material.button.MaterialButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="12dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textColor="#FFF"
-                android:text="Button"/>
 
-    </LinearLayout>
 
+  </LinearLayout>
+
+
+    <com.github.edwnmrtz.borderedstyleedittext.PasswordBorderedStyleEditText
+            android:inputType="number"
+            app:fieldLabel="Hello"
+            android:id="@+id/etSample"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
 </FrameLayout>
