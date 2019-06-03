@@ -13,12 +13,6 @@
                   tools:ignore="UselessParent">
 
         <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
-                android:inputType="text"
-                app:fieldLabel="NormalBorderedStyleEditText | Text"
-                android:id="@+id/etSample"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
                 android:inputType="number"
                 app:fieldLabel="NormalBorderedStyleEditText | Number"
                 android:id="@+id/etNumber"
@@ -48,6 +42,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
+
+        <com.github.edwnmrtz.borderedstyleedittext.PasswordBorderedStyleEditText
+                android:inputType="number"
+                app:fieldLabel="Hello"
+                android:id="@+id/etSample"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
         <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -59,12 +61,5 @@
 
   </LinearLayout>
 
-
-    <com.github.edwnmrtz.borderedstyleedittext.PasswordBorderedStyleEditText
-            android:inputType="number"
-            app:fieldLabel="Hello"
-            android:id="@+id/etSample"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
 
 </FrameLayout>
