@@ -4,7 +4,7 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              xmlns:app="http://schemas.android.com/apk/res-auto"
-             android:padding="48dp"
+             android:padding="16dp"
              tools:context=".FragmentOne">
   
     <LinearLayout android:layout_width="match_parent"
@@ -17,7 +17,10 @@
                 app:fieldLabel="NormalBorderedStyleEditText | Text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
+
         <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
+                android:layout_marginTop="10dp"
                 android:inputType="number"
                 app:fieldLabel="NormalBorderedStyleEditText | Number"
                 android:id="@+id/etNumber"
@@ -25,6 +28,7 @@
                 android:layout_height="wrap_content"/>
 
         <com.github.edwnmrtz.borderedstyleedittext.PasswordBorderedStyleEditText
+                android:layout_marginTop="10dp"
                 android:inputType="text"
                 app:fieldLabel="PasswordBorderedStyleEditText"
                 android:id="@+id/etPassword"
@@ -33,30 +37,21 @@
                 android:layout_height="wrap_content"/>
 
         <com.github.edwnmrtz.borderedstyleedittext.AutoCompleteBorderedStyleEditText
+                android:layout_marginTop="10dp"
                 android:inputType="text"
                 app:fieldLabel="AutoCompleteBorderedStyleEditText"
                 android:id="@+id/etAutoComplete"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
         <com.github.edwnmrtz.borderedstyleedittext.BorderedStyleSpinner
+                android:layout_marginTop="10dp"
                 android:inputType="text"
                 app:fieldLabel="BorderedStyleSpinner"
                 android:id="@+id/borderedStyleSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-
-
   </LinearLayout>
-
-
-    <com.github.edwnmrtz.borderedstyleedittext.PasswordBorderedStyleEditText
-            android:inputType="number"
-            app:fieldLabel="Hello"
-            android:id="@+id/etSample"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
 
 </FrameLayout>
