@@ -12,12 +12,14 @@ import android.text.InputFilter
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.View
+import com.google.android.material.textfield.TextInputLayout
 
 class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
 
     private var tvFieldLabelTitle: AppCompatTextView
     private var tvAssistiveText: AppCompatTextView
     private var etField: AppCompatEditText
+    private var tilPassword: TextInputLayout
 
     private var titleTextColor : Int       = ContextCompat.getColor(context,R.color.greyish)
     private var assistiveTextColor: Int    = ContextCompat.getColor(context,R.color.greyish)
@@ -30,12 +32,27 @@ class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
         tvFieldLabelTitle               = findViewById(R.id.tvTitle)
         tvAssistiveText                 = findViewById(R.id.tvAssistiveText)
         etField                         = findViewById(R.id.etField)
+        tilPassword                     = findViewById(R.id.tilPassword)
+
 
         val attributes: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.PasswordBorderedStyleEditText, 0, 0)
         val count = attributes.indexCount
         for (i in 0 until count) {
             val attr = attributes.getIndex(i)
             when (attr) {
+                R.styleable.PasswordBorderedStyleEditText_endIconDrawable -> {
+                    val passwordDrawable = attributes.getDrawable(attr)
+                    if(passwordDrawable != null)
+                        tilPassword.endIconDrawable = passwordDrawable
+                }
+                R.styleable.PasswordBorderedStyleEditText_startIconDrawable -> {
+                    val passwordDrawable = attributes.getDrawable(attr)
+                    if(passwordDrawable != null)
+                        tilPassword.startIconDrawable = passwordDrawable
+                }
+                R.styleable.PasswordBorderedStyleEditText_endIconMode-> {
+                    tilPassword.endIconMode =  attributes.getInt(attr, TextInputLayout.END_ICON_NONE)
+                }
                 R.styleable.PasswordBorderedStyleEditText_android_imeOptions -> {
                     etField.imeOptions =  attributes.getInt(attr, 0)
                 }
