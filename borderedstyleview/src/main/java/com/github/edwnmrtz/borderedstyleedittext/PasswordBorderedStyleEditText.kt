@@ -29,7 +29,7 @@ class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
 
     init {
         View.inflate(context, R.layout.bordered_edittext_password, this)
-        tvFieldLabelTitle               = findViewById(R.id.tvTitle)
+        tvFieldLabelTitle               = findViewById(R.id.tvFieldLabelTitle)
         tvAssistiveText                 = findViewById(R.id.tvAssistiveText)
         etField                         = findViewById(R.id.etField)
         tilPassword                     = findViewById(R.id.tilPassword)
@@ -119,6 +119,15 @@ class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
 
     fun getEditText(): AppCompatEditText {
         return etField
+    }
+
+    fun setText(text : String) {
+        etField.setText(text)
+    }
+
+    fun setFieldLabel(label : String) {
+        tvFieldLabelTitle.text = label
+        tvFieldLabelTitle.visibility = View.VISIBLE
     }
 
     fun setError(errorMessage: String) {

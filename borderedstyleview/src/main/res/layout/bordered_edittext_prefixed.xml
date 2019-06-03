@@ -11,7 +11,7 @@
             android:textColor="@color/greyish"
             tools:text="Mobile Number"
             android:textSize="14sp"
-            android:id="@+id/tvTitle"
+            android:id="@+id/tvFieldLabelTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -30,7 +30,7 @@
             android:layout_height="0dp"
             tools:text="Required"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+            app:layout_constraintBottom_toBottomOf="@+id/tvFieldLabelTitle"
             app:layout_constraintEnd_toEndOf="@+id/llPrefixedContainer" android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"/>
 
@@ -44,7 +44,7 @@
             android:gravity="center_vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+            app:layout_constraintTop_toBottomOf="@+id/tvFieldLabelTitle">
 
         <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvPrefix"
