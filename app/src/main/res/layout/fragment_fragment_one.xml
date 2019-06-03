@@ -15,7 +15,6 @@
         <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
                 android:inputType="text"
                 app:fieldLabel="NormalBorderedStyleEditText | Text"
-                android:id="@+id/etSample"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
@@ -48,14 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-        <com.google.android.material.button.MaterialButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="12dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textColor="#FFF"
-                android:text="Button"/>
+
 
   </LinearLayout>
 

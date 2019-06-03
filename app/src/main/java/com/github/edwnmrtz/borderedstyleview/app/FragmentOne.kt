@@ -21,7 +21,6 @@ private const val ARG_PARAM2 = "param2"
  */
 class FragmentOne : Fragment() {
 
-    private lateinit var etSample : PasswordBorderedStyleEditText
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
