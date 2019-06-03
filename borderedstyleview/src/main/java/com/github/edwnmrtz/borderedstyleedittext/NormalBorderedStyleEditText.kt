@@ -15,7 +15,6 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import android.graphics.Typeface
-import android.view.LayoutInflater
 
 
 open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
@@ -34,7 +33,7 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
  //       LayoutInflater.from(context).inflate(R.layout.bordered_edittext_normal, this)
 
         View.inflate(context, R.layout.bordered_edittext_normal, this)
-        tvFieldLabelTitle   = findViewById(R.id.tvTitle)
+        tvFieldLabelTitle   = findViewById(R.id.tvFieldLabelTitle)
         tvAssistiveText     = findViewById(R.id.tvAssistiveText)
         etField             = findViewById(R.id.etField)
 
@@ -124,6 +123,15 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
 
     fun getEditText(): AppCompatEditText {
         return etField
+    }
+
+    fun setText(text : String) {
+        etField.setText(text)
+    }
+
+    fun setFieldLabel(label : String) {
+        tvFieldLabelTitle.text = label
+        tvFieldLabelTitle.visibility = View.VISIBLE
     }
 
     fun enable() {

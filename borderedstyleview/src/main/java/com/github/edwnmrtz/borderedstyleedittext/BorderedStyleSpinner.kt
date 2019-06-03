@@ -13,7 +13,7 @@ import android.view.View
 
 class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : ConstraintLayout(context, attrs) {
 
-    private var tvTitle : AppCompatTextView
+    private var tvFieldLabelTitle : AppCompatTextView
     private var spinner : AppCompatSpinner
 
     private var titleTextColor : Int = ContextCompat.getColor(context,R.color.greyish)
@@ -23,7 +23,7 @@ class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : Constrain
 
     init {
         View.inflate(context, R.layout.bordered_spinner, this)
-        tvTitle = findViewById(R.id.tvTitle)
+        tvFieldLabelTitle = findViewById(R.id.tvFieldLabelTitle)
         spinner = findViewById(R.id.spinner)
         etField = findViewById(R.id.etField)
 
@@ -34,12 +34,12 @@ class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : Constrain
             val attr = attributes.getIndex(i)
             when (attr) {
                 R.styleable.BorderedStyleSpinner_fieldLabel -> {
-                    tvTitle.text = attributes.getString(R.styleable.BorderedStyleSpinner_fieldLabel)
-                    tvTitle.visibility = View.VISIBLE
+                    tvFieldLabelTitle.text = attributes.getString(R.styleable.BorderedStyleSpinner_fieldLabel)
+                    tvFieldLabelTitle.visibility = View.VISIBLE
                 }
                 R.styleable.BorderedStyleSpinner_fieldLabelTextColor -> {
                     titleTextColor = attributes.getColor(R.styleable.NormalBorderedStyleEditText_fieldLabelTextColor, titleTextColor)
-                    tvTitle.setTextColor(titleTextColor)
+                    tvFieldLabelTitle.setTextColor(titleTextColor)
                 }
                 R.styleable.BorderedStyleSpinner_android_textAppearance -> {
                     TextViewCompat.setTextAppearance(etField, attributes.getResourceId(attr, 0))
@@ -49,18 +49,28 @@ class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : Constrain
         attributes.recycle()
     }
 
+
     fun getSpinner() : AppCompatSpinner {
         return spinner;
     }
 
+    fun setText(text : String) {
+        etField.setText(text)
+    }
+
+    fun setFieldLabel(label : String) {
+        tvFieldLabelTitle.text = label
+        tvFieldLabelTitle.visibility = View.VISIBLE
+    }
+
     fun setError(errorMessage: String) {
         isError = true
-        tvTitle.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
+        tvFieldLabelTitle.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
         etField.setBackgroundResource(R.drawable.bordered_roundbox_error)
     }
 
     fun removeError() {
-        tvTitle.setTextColor(titleTextColor)
+        tvFieldLabelTitle.setTextColor(titleTextColor)
         etField.setBackgroundResource(R.drawable.bordered_roundbox_active)
     }
 

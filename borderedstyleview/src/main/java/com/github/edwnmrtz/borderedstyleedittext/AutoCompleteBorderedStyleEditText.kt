@@ -6,7 +6,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.widget.TextViewCompat
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView
-import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatTextView
 import android.text.Editable
 import android.text.InputFilter
@@ -29,7 +28,7 @@ class AutoCompleteBorderedStyleEditText (context: Context, attrs: AttributeSet) 
 
     init {
         View.inflate(context, R.layout.bordered_textview_autocomplete, this)
-        tvFieldLabelTitle = findViewById(R.id.tvTitle)
+        tvFieldLabelTitle = findViewById(R.id.tvFieldLabelTitle)
         tvAssistiveText = findViewById(R.id.tvAssistiveText)
         etField = findViewById(R.id.etField)
 
@@ -107,6 +106,15 @@ class AutoCompleteBorderedStyleEditText (context: Context, attrs: AttributeSet) 
 
     fun getAutoCompleteTextView(): AppCompatAutoCompleteTextView {
         return etField
+    }
+
+    fun setText(text : String) {
+        etField.setText(text)
+    }
+
+    fun setFieldLabel(label : String) {
+        tvFieldLabelTitle.text = label
+        tvFieldLabelTitle.visibility = View.VISIBLE
     }
 
     fun setError(errorMessage: String) {

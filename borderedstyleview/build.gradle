@@ -8,7 +8,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
-        versionName "1.2.6"
+        versionName "1.4.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -24,14 +24,16 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.appcompat:appcompat:1.1.0-alpha04'
-    implementation 'com.google.android.material:material:1.1.0-alpha05'
-
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha4'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    // KOTLIN
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    // APPCOMPAT
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    // MATERIALIZE
+    implementation "com.google.android.material:material:$material_version"
+    // CONSTRAINT LAYOUT
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
 }
+
 repositories {
     mavenCentral()
 }
