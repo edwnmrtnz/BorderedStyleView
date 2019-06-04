@@ -14,12 +14,13 @@
             android:layout_marginStart="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Title"
             android:textColor="@color/greyish"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/etField"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/etField"
-            app:layout_constraintTop_toTopOf="parent" android:visibility="gone"/>
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Title"/>
 
     <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvAssistiveText"
@@ -28,12 +29,15 @@
             android:textSize="12sp"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            tools:text="Required"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="@+id/tvFieldLabelTitle" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/etField" android:layout_marginRight="8dp"
-            app:layout_constraintStart_toEndOf="@+id/tvFieldLabelTitle" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"/>
+            app:layout_constraintBottom_toBottomOf="@+id/tvFieldLabelTitle"
+            app:layout_constraintEnd_toEndOf="@+id/etField"
+            app:layout_constraintStart_toEndOf="@+id/tvFieldLabelTitle"
+            tools:text="Required"/>
 
     <androidx.appcompat.widget.AppCompatEditText
             android:focusable="false"
@@ -55,13 +59,13 @@
             android:id="@+id/ivDropDown"
             android:layout_width="23dp"
             android:layout_height="23dp"
-            app:srcCompat="@drawable/ic_chevron_down"
             android:contentDescription="@string/app_name"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             app:layout_constraintTop_toTopOf="@+id/etField"
             app:layout_constraintBottom_toBottomOf="@+id/spinner"
             app:layout_constraintEnd_toEndOf="@+id/etField"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"/>
+            app:srcCompat="@drawable/ic_chevron_down"/>
 
     <androidx.appcompat.widget.AppCompatSpinner
             android:gravity="start"
