@@ -12,9 +12,10 @@
                   android:orientation="vertical"
                   tools:ignore="UselessParent">
 
-        <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
+        <com.github.edwnmrtz.borderedstyleedittext.PrefixedBorderedStyleEditText
                 android:inputType="text"
-                app:fieldLabel="NormalBorderedStyleEditText | Text"
+                app:prefix="+63"
+                app:fieldLabel="PrefixedBorderedStyleEditText | Text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
