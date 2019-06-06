@@ -15,6 +15,7 @@
         <com.github.edwnmrtz.borderedstyleedittext.PrefixedBorderedStyleEditText
                 android:inputType="text"
                 app:prefix="+63"
+                app:assistiveText=""
                 app:fieldLabel="PrefixedBorderedStyleEditText | Text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -42,13 +43,16 @@
                 android:inputType="text"
                 app:fieldLabel="AutoCompleteBorderedStyleEditText"
                 android:id="@+id/etAutoComplete"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
         <com.github.edwnmrtz.borderedstyleedittext.BorderedStyleSpinner
                 android:layout_marginTop="10dp"
                 android:inputType="text"
-                app:fieldLabel="BorderedStyleSpinner"
+                app:fieldLabel="dBorderedStyleSpinner"
+                app:assistiveText="d"
+
                 android:id="@+id/borderedStyleSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>

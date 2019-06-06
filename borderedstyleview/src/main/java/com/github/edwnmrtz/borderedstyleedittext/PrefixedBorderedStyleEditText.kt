@@ -43,8 +43,7 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
         val attributes: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.PrefixedBorderedStyleEditText, 0, 0)
         val count = attributes.indexCount
         for (i in 0 until count) {
-            val attr = attributes.getIndex(i)
-            when (attr) {
+            when (val attr = attributes.getIndex(i)) {
                 R.styleable.PrefixedBorderedStyleEditText_android_imeOptions -> {
                     etField.imeOptions =  attributes.getInt(attr, 0)
                 }
@@ -63,7 +62,6 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
                     tvAssistiveText.visibility = View.VISIBLE                }
                 R.styleable.PrefixedBorderedStyleEditText_fieldLabel -> {
                     tvFieldLabelTitle.text = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_fieldLabel)
-//                    etField.hint = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_fieldLabel)
                     tvFieldLabelTitle.visibility = View.VISIBLE
                 }
                 R.styleable.PrefixedBorderedStyleEditText_assistiveTextColor -> {

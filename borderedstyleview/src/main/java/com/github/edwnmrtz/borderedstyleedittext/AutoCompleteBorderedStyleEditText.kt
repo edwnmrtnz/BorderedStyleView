@@ -36,8 +36,7 @@ class AutoCompleteBorderedStyleEditText (context: Context, attrs: AttributeSet) 
 
         val count = attributes.indexCount
         for (i in 0 until count) {
-            val attr = attributes.getIndex(i)
-            when (attr) {
+            when (val attr = attributes.getIndex(i)) {
                 R.styleable.AutoCompleteBorderedStyleTextView_android_inputType -> {
                     etField.inputType = attributes.getInt(R.styleable.AutoCompleteBorderedStyleTextView_android_inputType, EditorInfo.TYPE_TEXT_VARIATION_NORMAL)
                 }
