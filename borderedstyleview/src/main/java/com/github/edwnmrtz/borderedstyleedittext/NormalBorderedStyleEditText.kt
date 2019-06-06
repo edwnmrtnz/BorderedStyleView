@@ -41,8 +41,7 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
 
         val count = attributes.indexCount
         for (i in 0 until count) {
-            val attr = attributes.getIndex(i)
-            when (attr) {
+            when (val attr = attributes.getIndex(i)) {
                 R.styleable.NormalBorderedStyleEditText_android_imeOptions -> {
                     etField.imeOptions =  attributes.getInt(attr, 0)
                 }

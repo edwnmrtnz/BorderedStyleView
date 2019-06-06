@@ -34,12 +34,10 @@ class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
         etField                         = findViewById(R.id.etField)
         tilPassword                     = findViewById(R.id.tilPassword)
 
-
         val attributes: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.PasswordBorderedStyleEditText, 0, 0)
         val count = attributes.indexCount
         for (i in 0 until count) {
-            val attr = attributes.getIndex(i)
-            when (attr) {
+            when (val attr = attributes.getIndex(i)) {
                 R.styleable.PasswordBorderedStyleEditText_endIconDrawable -> {
                     val passwordDrawable = attributes.getDrawable(attr)
                     if(passwordDrawable != null)

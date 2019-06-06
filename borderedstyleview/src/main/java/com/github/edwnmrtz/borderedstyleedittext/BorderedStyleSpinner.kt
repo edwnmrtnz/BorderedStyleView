@@ -14,9 +14,12 @@ import android.view.View
 class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : ConstraintLayout(context, attrs) {
 
     private var tvFieldLabelTitle : AppCompatTextView
+    private var tvAssistiveText : AppCompatTextView
     private var spinner : AppCompatSpinner
 
     private var titleTextColor : Int = ContextCompat.getColor(context,R.color.greyish)
+    private var assistiveTextColor: Int    = ContextCompat.getColor(context,R.color.greyish)
+    private var assistiveText : String?    = ""
 
     private var isError = false
     private var etField : AppCompatEditText
@@ -24,6 +27,7 @@ class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : Constrain
     init {
         View.inflate(context, R.layout.bordered_spinner, this)
         tvFieldLabelTitle = findViewById(R.id.tvFieldLabelTitle)
+        tvAssistiveText = findViewById(R.id.tvAssistiveText)
         spinner = findViewById(R.id.spinner)
         etField = findViewById(R.id.etField)
 
@@ -31,8 +35,7 @@ class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : Constrain
 
         val count = attributes.indexCount
         for (i in 0 until count) {
-            val attr = attributes.getIndex(i)
-            when (attr) {
+            when (val attr = attributes.getIndex(i)) {
                 R.styleable.BorderedStyleSpinner_fieldLabel -> {
                     tvFieldLabelTitle.text = attributes.getString(R.styleable.BorderedStyleSpinner_fieldLabel)
                     tvFieldLabelTitle.visibility = View.VISIBLE
@@ -44,11 +47,19 @@ class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : Constrain
                 R.styleable.BorderedStyleSpinner_android_textAppearance -> {
                     TextViewCompat.setTextAppearance(etField, attributes.getResourceId(attr, 0))
                 }
+                R.styleable.BorderedStyleSpinner_assistiveText -> {
+                    assistiveText = attributes.getString(R.styleable.BorderedStyleSpinner_assistiveText)
+                    tvAssistiveText.text = assistiveText
+                    tvAssistiveText.visibility = View.VISIBLE
+                }
+                R.styleable.BorderedStyleSpinner_assistiveTextColor -> {
+                    assistiveTextColor = attributes.getColor(R.styleable.BorderedStyleSpinner_assistiveTextColor, assistiveTextColor)
+                    tvAssistiveText.setTextColor(assistiveTextColor)
+                }
             }
         }
         attributes.recycle()
     }
-
 
     fun getSpinner() : AppCompatSpinner {
         return spinner;

@@ -24,7 +24,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvAssistiveText"
-            android:visibility="visible"
+            android:visibility="gone"
             android:gravity="end"
             android:textSize="12sp"
             android:layout_width="0dp"
