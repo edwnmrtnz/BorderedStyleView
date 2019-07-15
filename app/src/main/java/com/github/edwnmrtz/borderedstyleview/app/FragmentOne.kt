@@ -6,8 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 
-import com.github.edwnmrtz.borderedstyleedittext.PasswordBorderedStyleEditText
+import kotlinx.android.synthetic.main.fragment_fragment_one.view.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -21,6 +22,7 @@ private const val ARG_PARAM2 = "param2"
  */
 class FragmentOne : Fragment() {
 
+    private lateinit var suffixes: Array<String>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +31,10 @@ class FragmentOne : Fragment() {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_fragment_one, container, false)
 
+        suffixes = context?.resources?.getStringArray(R.array.suffixes)!!
+        val adapter  = ArrayAdapter(context!!, android.R.layout.simple_list_item_1, suffixes)
 
+        view.spSuffix.getSpinner().adapter = adapter
 
         return view
     }

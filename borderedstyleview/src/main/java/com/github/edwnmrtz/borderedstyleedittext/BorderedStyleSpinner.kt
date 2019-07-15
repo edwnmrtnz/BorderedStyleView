@@ -9,12 +9,17 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatSpinner
 import androidx.appcompat.widget.AppCompatTextView
 import android.util.AttributeSet
+import android.view.ActionMode
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.widget.AppCompatImageView
 
 class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : ConstraintLayout(context, attrs) {
 
     private var tvFieldLabelTitle : AppCompatTextView
     private var tvAssistiveText : AppCompatTextView
+    private var ivDropDown : AppCompatImageView
     private var spinner : AppCompatSpinner
 
     private var titleTextColor : Int = ContextCompat.getColor(context,R.color.greyish)
@@ -30,6 +35,33 @@ class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : Constrain
         tvAssistiveText = findViewById(R.id.tvAssistiveText)
         spinner = findViewById(R.id.spinner)
         etField = findViewById(R.id.etField)
+        ivDropDown = findViewById(R.id.ivDropDown)
+
+        etField.customSelectionActionModeCallback = object : ActionMode.Callback {
+            override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
+                return false
+            }
+
+            override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean {
+                return false
+            }
+
+            override fun onPrepareActionMode(mode: ActionMode?, menu: Menu?): Boolean {
+                return false
+            }
+
+            override fun onDestroyActionMode(mode: ActionMode?) {
+
+            }
+
+        }
+
+        ivDropDown.setOnClickListener {
+            spinner.performClick()
+        }
+        ivDropDown.setOnLongClickListener {
+            spinner.performLongClick()
+        }
 
         val attributes: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.BorderedStyleSpinner, 0, 0)
 
@@ -58,11 +90,12 @@ class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : Constrain
                 }
             }
         }
+
         attributes.recycle()
     }
 
     fun getSpinner() : AppCompatSpinner {
-        return spinner;
+        return spinner
     }
 
     fun setText(text : String) {
