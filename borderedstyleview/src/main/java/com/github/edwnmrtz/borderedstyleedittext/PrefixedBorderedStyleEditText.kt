@@ -25,6 +25,7 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
     private var titleTextColor : Int       = ContextCompat.getColor(context,R.color.greyish)
     private var assistiveTextColor: Int    = ContextCompat.getColor(context,R.color.greyish)
     private var assistiveText : String?    = ""
+    private var textColorHint: Int    = ContextCompat.getColor(context,R.color.greyish)
     private var llPrefixedContainer : LinearLayoutCompat
     private var prefixDivider : View
 
@@ -90,6 +91,10 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
                 }
                 R.styleable.PrefixedBorderedStyleEditText_android_focusable -> {
                     etField.isFocusable = attributes.getBoolean(attr, true)
+                }
+                R.styleable.PrefixedBorderedStyleEditText_android_textColorHint -> {
+                    textColorHint = attributes.getColor(R.styleable.PrefixedBorderedStyleEditText_android_textColorHint, textColorHint)
+                    etField.setHintTextColor(textColorHint)
                 }
 
             }

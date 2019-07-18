@@ -3,12 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     defaultConfig {
         applicationId "com.github.edwnmrtz.borderedstyleview.app"
         minSdkVersion 16
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
@@ -22,24 +22,28 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
 
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    // KOTLIN
+    // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    // APPCOMPAT
+    // AppCompat
     implementation "androidx.appcompat:appcompat:$appcompat_version"
-    // MATERIALIZE
+    // Material
     implementation "com.google.android.material:material:$material_version"
-    // CONSTRAINT LAYOUT
+    // Constraint Layout
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
-    // JUNIT
+    // JUnit
     testImplementation "junit:junit:$junit_version"
-    // RUNNER
+    // Runner
     androidTestImplementation "androidx.test:runner:$runner_version"
-    // ESPRESSO
+    // Espresso
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core_version"
 
     implementation project(':borderedstyleview')

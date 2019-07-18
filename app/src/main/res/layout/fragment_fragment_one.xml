@@ -16,6 +16,8 @@
                 android:inputType="text"
                 app:prefix="+63"
                 app:assistiveText=""
+                android:textColorHint="@color/colorPrimary"
+                android:hint="915454084"
                 app:fieldLabel="PrefixedBorderedStyleEditText | Text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
