@@ -3,10 +3,7 @@ package com.github.edwnmrtz.borderedstyleview.app
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.AppCompatButton
-import android.view.View
 
-import com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
-import com.github.edwnmrtz.borderedstyleedittext.PasswordBorderedStyleEditText
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,15 +16,6 @@ class MainActivity : AppCompatActivity() {
 
         initFragment()
 
-        btnReplace = findViewById(R.id.btnReplace)
-
-        btnReplace.setOnClickListener {
-            val fragment = FragmentTwo()
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.flContainer, fragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
     }
 
     private fun initFragment() {

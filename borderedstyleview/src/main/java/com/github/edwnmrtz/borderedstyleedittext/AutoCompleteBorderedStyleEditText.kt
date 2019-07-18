@@ -13,12 +13,14 @@ import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.widget.FrameLayout
 
 class AutoCompleteBorderedStyleEditText (context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
 
     private var tvFieldLabelTitle: AppCompatTextView
     private var tvAssistiveText: AppCompatTextView
     private var etField: AppCompatAutoCompleteTextView
+    private var flField: FrameLayout
 
     private var titleTextColor : Int       = ContextCompat.getColor(context,R.color.greyish)
     private var assistiveTextColor: Int    = ContextCompat.getColor(context,R.color.greyish)
@@ -28,9 +30,10 @@ class AutoCompleteBorderedStyleEditText (context: Context, attrs: AttributeSet) 
 
     init {
         View.inflate(context, R.layout.bordered_textview_autocomplete, this)
-        tvFieldLabelTitle = findViewById(R.id.tvFieldLabelTitle)
-        tvAssistiveText = findViewById(R.id.tvAssistiveText)
-        etField = findViewById(R.id.etField)
+        tvFieldLabelTitle                  = findViewById(R.id.tvFieldLabelTitle)
+        tvAssistiveText                    = findViewById(R.id.tvAssistiveText)
+        etField                            = findViewById(R.id.etField)
+        flField                            = findViewById(R.id.flField)
 
         val attributes: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.AutoCompleteBorderedStyleTextView, 0, 0)
 
@@ -121,14 +124,14 @@ class AutoCompleteBorderedStyleEditText (context: Context, attrs: AttributeSet) 
         tvFieldLabelTitle.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
         tvAssistiveText.visibility = View.VISIBLE
         tvAssistiveText.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
-        etField.setBackgroundResource(R.drawable.bordered_roundbox_error)
+        flField.setBackgroundResource(R.drawable.bordered_roundbox_error)
         tvAssistiveText.text = errorMessage
     }
 
     fun removeError() {
         isError = false
         tvFieldLabelTitle.setTextColor(titleTextColor)
-        etField.setBackgroundResource(R.drawable.bordered_roundbox_active)
+        flField.setBackgroundResource(R.drawable.bordered_roundbox_active)
         tvAssistiveText.setTextColor(assistiveTextColor)
 
         if(assistiveText != null) {
@@ -141,12 +144,12 @@ class AutoCompleteBorderedStyleEditText (context: Context, attrs: AttributeSet) 
 
     fun enable() {
         etField.isEnabled = true
-        etField.setBackgroundResource(R.drawable.bordered_roundbox_active)
+        flField.setBackgroundResource(R.drawable.bordered_roundbox_active)
     }
 
     fun disable() {
         etField.isEnabled = false
-        etField.setBackgroundResource(R.drawable.bordered_roundbox_disabled)
+        flField.setBackgroundResource(R.drawable.bordered_roundbox_disabled)
     }
 
     companion object {

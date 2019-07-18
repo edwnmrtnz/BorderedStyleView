@@ -13,14 +13,20 @@
             android:textSize="14sp"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:textColor="#adadad"
-            app:layout_constraintEnd_toEndOf="@+id/etField"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/etField"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="@string/app_name"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="First Name"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/flField"
+            tools:text="First Name"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            android:gravity="center|start"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"/>
 
     <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvAssistiveText"
@@ -31,20 +37,43 @@
             android:layout_height="0dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
+            android:maxLines="1"
+            android:ellipsize="end"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="@+id/tvFieldLabelTitle"
-            app:layout_constraintEnd_toEndOf="@+id/etField"
-            tools:text="Required"/>
-
-    <androidx.appcompat.widget.AppCompatEditText
-            android:inputType="text"
-            android:id="@+id/etField"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/flField"
+            tools:text="Required"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            android:gravity="center|end"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"/>
+    <FrameLayout
+            android:id="@+id/flField"
+            android:layout_width="match_parent"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:layout_height="match_parent"
             android:background="@drawable/bordered_roundbox"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvFieldLabelTitle"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvFieldLabelTitle">
 
+        <androidx.appcompat.widget.AppCompatEditText
+                android:inputType="text"
+                android:id="@+id/etField"
+                android:background="@null"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+    </FrameLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/guideline"
+            app:layout_constraintGuide_percent="0.30"/>
 </merge>

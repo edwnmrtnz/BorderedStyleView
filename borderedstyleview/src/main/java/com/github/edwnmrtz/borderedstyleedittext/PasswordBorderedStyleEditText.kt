@@ -12,6 +12,7 @@ import android.text.InputFilter
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.View
+import android.widget.FrameLayout
 import com.google.android.material.textfield.TextInputLayout
 
 class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
@@ -20,6 +21,7 @@ class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
     private var tvAssistiveText: AppCompatTextView
     private var etField: AppCompatEditText
     private var tilPassword: TextInputLayout
+    private var flField: FrameLayout
 
     private var titleTextColor : Int       = ContextCompat.getColor(context,R.color.greyish)
     private var assistiveTextColor: Int    = ContextCompat.getColor(context,R.color.greyish)
@@ -33,6 +35,7 @@ class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
         tvAssistiveText                 = findViewById(R.id.tvAssistiveText)
         etField                         = findViewById(R.id.etField)
         tilPassword                     = findViewById(R.id.tilPassword)
+        flField                         = findViewById(R.id.flField)
 
         val attributes: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.PasswordBorderedStyleEditText, 0, 0)
         val count = attributes.indexCount
@@ -133,14 +136,14 @@ class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
         tvFieldLabelTitle.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
         tvAssistiveText.visibility = View.VISIBLE
         tvAssistiveText.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
-        etField.setBackgroundResource(R.drawable.bordered_roundbox_error)
+        flField.setBackgroundResource(R.drawable.bordered_roundbox_error)
         tvAssistiveText.text = errorMessage
     }
 
     fun removeError() {
         isError = false
         tvFieldLabelTitle.setTextColor(titleTextColor)
-        etField.setBackgroundResource(R.drawable.bordered_roundbox_active)
+        flField.setBackgroundResource(R.drawable.bordered_roundbox_active)
         tvAssistiveText.setTextColor(assistiveTextColor)
 
         if(assistiveText != null) {
@@ -153,12 +156,12 @@ class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
 
     fun enable() {
         etField.isEnabled = true
-        etField.setBackgroundResource(R.drawable.bordered_roundbox_active)
+        flField.setBackgroundResource(R.drawable.bordered_roundbox_active)
     }
 
     fun disable() {
         etField.isEnabled = false
-        etField.setBackgroundResource(R.drawable.bordered_roundbox_disabled)
+        flField.setBackgroundResource(R.drawable.bordered_roundbox_disabled)
     }
 
     companion object {

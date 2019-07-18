@@ -13,6 +13,8 @@ import android.view.ActionMode
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.AdapterView
+import android.widget.FrameLayout
 import androidx.appcompat.widget.AppCompatImageView
 
 class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : ConstraintLayout(context, attrs) {
@@ -21,6 +23,7 @@ class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : Constrain
     private var tvAssistiveText : AppCompatTextView
     private var ivDropDown : AppCompatImageView
     private var spinner : AppCompatSpinner
+    private var flField : FrameLayout
 
     private var titleTextColor : Int = ContextCompat.getColor(context,R.color.greyish)
     private var assistiveTextColor: Int    = ContextCompat.getColor(context,R.color.greyish)
@@ -36,7 +39,7 @@ class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : Constrain
         spinner = findViewById(R.id.spinner)
         etField = findViewById(R.id.etField)
         ivDropDown = findViewById(R.id.ivDropDown)
-
+        flField     = findViewById(R.id.flField)
         etField.customSelectionActionModeCallback = object : ActionMode.Callback {
             override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
                 return false
@@ -90,6 +93,22 @@ class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : Constrain
                 }
             }
         }
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                if(isError) {
+                    removeError()
+                    isError = false
+                }
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                if(isError) {
+                    removeError()
+                    isError = false
+                }
+            }
+
+        }
 
         attributes.recycle()
     }
@@ -110,22 +129,34 @@ class BorderedStyleSpinner (context : Context, attrs : AttributeSet) : Constrain
     fun setError(errorMessage: String) {
         isError = true
         tvFieldLabelTitle.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
-        etField.setBackgroundResource(R.drawable.bordered_roundbox_error)
+        tvAssistiveText.visibility = View.VISIBLE
+        tvAssistiveText.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
+        flField.setBackgroundResource(R.drawable.bordered_roundbox_error)
+        tvAssistiveText.text = errorMessage
     }
 
     fun removeError() {
+        isError = false
         tvFieldLabelTitle.setTextColor(titleTextColor)
-        etField.setBackgroundResource(R.drawable.bordered_roundbox_active)
+        flField.setBackgroundResource(R.drawable.bordered_roundbox_active)
+        tvAssistiveText.setTextColor(assistiveTextColor)
+
+        if(assistiveText != null) {
+            tvAssistiveText.visibility = View.VISIBLE
+            tvAssistiveText.text = assistiveText
+        } else {
+            tvAssistiveText.visibility = View.GONE
+        }
     }
 
     fun enable() {
         etField.isEnabled = true
-        etField.setBackgroundResource(R.drawable.bordered_roundbox_active)
+        flField.setBackgroundResource(R.drawable.bordered_roundbox_active)
     }
 
     fun disable() {
         etField.isEnabled = false
-        etField.setBackgroundResource(R.drawable.bordered_roundbox_disabled)
+        flField.setBackgroundResource(R.drawable.bordered_roundbox_disabled)
     }
 
 }

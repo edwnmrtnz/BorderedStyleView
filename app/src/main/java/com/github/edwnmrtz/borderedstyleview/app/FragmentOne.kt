@@ -7,7 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-
+import android.widget.EditText
+import com.github.edwnmrtz.borderedstyleedittext.PrefixedBorderedStyleEditText
 import kotlinx.android.synthetic.main.fragment_fragment_one.view.*
 
 
@@ -31,13 +32,33 @@ class FragmentOne : Fragment() {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_fragment_one, container, false)
 
+//        val etPrefixed : PrefixedBorderedStyleEditText = view.findViewById(R.id.etPrefixed)
+//
+//        setEditTextFocus(etPrefixed.getEditText(), true)
+
+        view.btnError.setOnClickListener {
+            view.etPrefixed.setError("This field is required")
+            view.etPassword.setError("This field is required")
+            view.etNormal.setError("This field is required")
+            view.etAutoComplete.setError("This field is required")
+            view.spSuffix.setError("This field is required")
+        }
+
+        view.btnRemoveError.setOnClickListener {
+            view.etPassword.removeError()
+            view.etPrefixed.removeError()
+            view.etNormal.removeError()
+            view.etAutoComplete.removeError()
+            view.spSuffix.removeError()
+        }
+
         suffixes = context?.resources?.getStringArray(R.array.suffixes)!!
         val adapter  = ArrayAdapter(context!!, android.R.layout.simple_list_item_1, suffixes)
 
         view.spSuffix.getSpinner().adapter = adapter
 
+
         return view
     }
-
 
 }
