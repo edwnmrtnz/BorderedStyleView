@@ -15,6 +15,7 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import android.graphics.Typeface
+import android.widget.FrameLayout
 
 
 open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
@@ -22,6 +23,7 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
      private var tvFieldLabelTitle: AppCompatTextView
      private var tvAssistiveText: AppCompatTextView
      private var etField: AppCompatEditText
+     private var flField: FrameLayout
 
      private var titleTextColor : Int       = ContextCompat.getColor(context,R.color.greyish)
      private var assistiveTextColor: Int    = ContextCompat.getColor(context,R.color.greyish)
@@ -36,6 +38,7 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
         tvFieldLabelTitle   = findViewById(R.id.tvFieldLabelTitle)
         tvAssistiveText     = findViewById(R.id.tvAssistiveText)
         etField             = findViewById(R.id.etField)
+        flField             = findViewById(R.id.flField)
 
         val attributes: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.NormalBorderedStyleEditText, 0, 0)
 
@@ -135,12 +138,12 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
 
     fun enable() {
         etField.isEnabled = true
-        etField.setBackgroundResource(R.drawable.bordered_roundbox_active)
+        flField.setBackgroundResource(R.drawable.bordered_roundbox_active)
     }
 
     fun disable() {
         etField.isEnabled = false
-        etField.setBackgroundResource(R.drawable.bordered_roundbox_disabled)
+        flField.setBackgroundResource(R.drawable.bordered_roundbox_disabled)
     }
 
     fun setError(errorMessage: String) {
@@ -148,14 +151,14 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
         tvFieldLabelTitle.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
         tvAssistiveText.visibility = View.VISIBLE
         tvAssistiveText.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
-        etField.setBackgroundResource(R.drawable.bordered_roundbox_error)
+        flField.setBackgroundResource(R.drawable.bordered_roundbox_error)
         tvAssistiveText.text = errorMessage
     }
 
     fun removeError() {
         isError = false
         tvFieldLabelTitle.setTextColor(titleTextColor)
-        etField.setBackgroundResource(R.drawable.bordered_roundbox_active)
+        flField.setBackgroundResource(R.drawable.bordered_roundbox_active)
         tvAssistiveText.setTextColor(assistiveTextColor)
 
         if(assistiveText != null) {

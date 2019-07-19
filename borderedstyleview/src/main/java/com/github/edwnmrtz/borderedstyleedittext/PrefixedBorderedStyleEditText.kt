@@ -16,6 +16,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.inputmethod.EditorInfo
 
+@Deprecated("Use PrefixedBorderedStyleEditText2")
 class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
 
     private var tvFieldLabelTitle: AppCompatTextView
@@ -26,7 +27,7 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
     private var assistiveTextColor: Int    = ContextCompat.getColor(context,R.color.greyish)
     private var assistiveText : String?    = ""
     private var textColorHint: Int    = ContextCompat.getColor(context,R.color.greyish)
-    private var llPrefixedContainer : LinearLayoutCompat
+    // private var llPrefixedContainer : LinearLayoutCompat
     private var prefixDivider : View
 
     private var tvPrefix : AppCompatTextView
@@ -38,7 +39,7 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
         tvAssistiveText         = findViewById(R.id.tvAssistiveText)
         etField                 = findViewById(R.id.etField)
         tvPrefix                = findViewById(R.id.tvPrefix)
-        llPrefixedContainer     = findViewById(R.id.llPrefixedContainer)
+      //  llPrefixedContainer     = findViewById(R.id.llPrefixedContainer)
         prefixDivider           = findViewById(R.id.prefixDivider)
 
         val attributes: TypedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.PrefixedBorderedStyleEditText, 0, 0)
@@ -101,6 +102,8 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
         }
         attributes.recycle()
 
+        etField.requestFocus()
+
         textChangeListener()
     }
 
@@ -118,12 +121,9 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                //Ignore
+
             }
-
         })
-
-//        setError("Wrong")
     }
 
     fun getText() : String {
@@ -148,7 +148,7 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
         tvFieldLabelTitle.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
         tvAssistiveText.visibility = View.VISIBLE
         tvAssistiveText.setTextColor(ContextCompat.getColor(context, R.color.reddish_pink))
-        llPrefixedContainer.setBackgroundResource(R.drawable.bordered_roundbox_error)
+        // llPrefixedContainer.setBackgroundResource(R.drawable.bordered_roundbox_error)
         prefixDivider.setBackgroundColor(ContextCompat.getColor(context, R.color.reddish_pink))
         tvAssistiveText.text = errorMessage
     }
@@ -156,7 +156,7 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
     fun removeError() {
         isError = false
         tvFieldLabelTitle.setTextColor(titleTextColor)
-        llPrefixedContainer.setBackgroundResource(R.drawable.bordered_roundbox_active)
+        // llPrefixedContainer.setBackgroundResource(R.drawable.bordered_roundbox_active)
         prefixDivider.setBackgroundColor(Color.parseColor("#ebebeb"))
         tvAssistiveText.setTextColor(assistiveTextColor)
 
