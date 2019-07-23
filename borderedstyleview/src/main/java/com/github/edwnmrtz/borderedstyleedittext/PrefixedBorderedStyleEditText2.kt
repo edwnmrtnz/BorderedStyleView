@@ -97,8 +97,8 @@ class PrefixedBorderedStyleEditText2 (context: Context, attrs: AttributeSet) : C
                     val appearance = attributes.getResourceId(attr, 0)
                     TextViewCompat.setTextAppearance(etField, appearance)
                 }
-                R.styleable.PrefixedBorderedStyleEditText_prefix -> {
-                    tvPrefix.text = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_prefix)
+                R.styleable.PrefixedBorderedStyleEditText2_prefix -> {
+                    tvPrefix.text = attributes.getString(R.styleable.PrefixedBorderedStyleEditText2_prefix)
                 }
 
 
@@ -111,8 +111,8 @@ class PrefixedBorderedStyleEditText2 (context: Context, attrs: AttributeSet) : C
                 R.styleable.PrefixedBorderedStyleEditText2_android_focusable -> {
                     etField.isFocusable = attributes.getBoolean(attr, true)
                 }
-                R.styleable.PrefixedBorderedStyleEditText_android_textColorHint -> {
-                    textColorHint = attributes.getColor(R.styleable.PrefixedBorderedStyleEditText_android_textColorHint, textColorHint)
+                R.styleable.PrefixedBorderedStyleEditText2_android_textColorHint -> {
+                    textColorHint = attributes.getColor(R.styleable.PrefixedBorderedStyleEditText2_android_textColorHint, textColorHint)
                     etField.setHintTextColor(textColorHint)
                 }
             }

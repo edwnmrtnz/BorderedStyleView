@@ -68,7 +68,7 @@ class AutoCompleteBorderedStyleEditText (context: Context, attrs: AttributeSet) 
                     tvFieldLabelTitle.setTextColor(titleTextColor)
                 }
                 R.styleable.AutoCompleteBorderedStyleTextView_android_hint -> {
-                    etField.hint = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_android_hint)
+                    etField.hint = attributes.getString(R.styleable.PrefixedBorderedStyleEditText2_android_hint)
                 }
                 R.styleable.AutoCompleteBorderedStyleTextView_android_textAppearance -> {
                     TextViewCompat.setTextAppearance(etField, attributes.getResourceId(attr, 0))
