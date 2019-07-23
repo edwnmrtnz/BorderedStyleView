@@ -12,7 +12,7 @@
                   android:orientation="vertical"
                   tools:ignore="UselessParent">
 
-        <com.github.edwnmrtz.borderedstyleedittext.PrefixedBorderedStyleEditText2
+        <com.github.edwnmrtz.borderedstyleedittext.PrefixedBorderedStyleEditText
                 android:id="@+id/etPrefixed"
                 android:inputType="number"
                 app:prefix="+63"
@@ -21,7 +21,7 @@
                 android:textColorHint="@color/colorPrimary"
                 app:fieldLabel="PrefixedEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" tools:ignore="HardcodedText"/>
 
 
         <com.github.edwnmrtz.borderedstyleedittext.NormalBorderedStyleEditText
@@ -64,12 +64,12 @@
                 android:id="@+id/btnError"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Set Error"/>
+                android:text="Set Error" tools:ignore="HardcodedText"/>
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnRemoveError"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Remove Error"/>
+                android:text="Remove Error" tools:ignore="HardcodedText"/>
 
         <androidx.appcompat.widget.AppCompatAutoCompleteTextView
                 android:id="@+id/etField"

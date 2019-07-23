@@ -17,7 +17,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.widget.TextViewCompat
 
-class PrefixedBorderedStyleEditText2 (context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
+class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
 
     private var tvFieldLabelTitle: AppCompatTextView
     private var tvAssistiveText: AppCompatTextView
@@ -46,73 +46,73 @@ class PrefixedBorderedStyleEditText2 (context: Context, attrs: AttributeSet) : C
         prefixDivider           = findViewById(R.id.prefixDivider)
 
         val attributes: TypedArray =
-            context.theme.obtainStyledAttributes(attrs, R.styleable.PrefixedBorderedStyleEditText2, 0, 0)
+            context.theme.obtainStyledAttributes(attrs, R.styleable.PrefixedBorderedStyleEditText, 0, 0)
 
         val count = attributes.indexCount
         for (i in 0 until count) {
             when (val attr = attributes.getIndex(i)) {
-                R.styleable.PrefixedBorderedStyleEditText2_android_imeOptions -> {
+                R.styleable.PrefixedBorderedStyleEditText_android_imeOptions -> {
                     etField.imeOptions = attributes.getInt(attr, 0)
                 }
-                R.styleable.PrefixedBorderedStyleEditText2_android_inputType -> {
+                R.styleable.PrefixedBorderedStyleEditText_android_inputType -> {
                     etField.inputType = attributes.getInt(
-                        R.styleable.PrefixedBorderedStyleEditText2_android_inputType,
+                        R.styleable.PrefixedBorderedStyleEditText_android_inputType,
                         EditorInfo.TYPE_TEXT_VARIATION_NORMAL
                     )
                 }
-                R.styleable.PrefixedBorderedStyleEditText2_android_maxLines -> {
+                R.styleable.PrefixedBorderedStyleEditText_android_maxLines -> {
                     etField.maxLines = attributes.getInt(attr, 1000)
                 }
-                R.styleable.PrefixedBorderedStyleEditText2_android_maxLength -> {
+                R.styleable.PrefixedBorderedStyleEditText_android_maxLength -> {
                     etField.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(attributes.getInt(attr, 1000)))
                 }
-                R.styleable.PrefixedBorderedStyleEditText2_assistiveText -> {
-                    assistiveText = attributes.getString(R.styleable.PrefixedBorderedStyleEditText2_assistiveText)
+                R.styleable.PrefixedBorderedStyleEditText_assistiveText -> {
+                    assistiveText = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_assistiveText)
                     tvAssistiveText.text = assistiveText
                     tvAssistiveText.visibility = View.VISIBLE
                 }
-                R.styleable.PrefixedBorderedStyleEditText2_fieldLabel -> {
-                    tvFieldLabelTitle.text = attributes.getString(R.styleable.PrefixedBorderedStyleEditText2_fieldLabel)
+                R.styleable.PrefixedBorderedStyleEditText_fieldLabel -> {
+                    tvFieldLabelTitle.text = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_fieldLabel)
                     tvFieldLabelTitle.visibility = View.VISIBLE
                 }
-                R.styleable.PrefixedBorderedStyleEditText2_assistiveTextColor -> {
+                R.styleable.PrefixedBorderedStyleEditText_assistiveTextColor -> {
                     assistiveTextColor = attributes.getColor(
-                        R.styleable.PrefixedBorderedStyleEditText2_assistiveTextColor,
+                        R.styleable.PrefixedBorderedStyleEditText_assistiveTextColor,
                         assistiveTextColor
                     )
                     tvAssistiveText.setTextColor(assistiveTextColor)
                 }
-                R.styleable.PrefixedBorderedStyleEditText2_fieldLabelTextColor -> {
+                R.styleable.PrefixedBorderedStyleEditText_fieldLabelTextColor -> {
                     titleTextColor = attributes.getColor(
-                        R.styleable.PrefixedBorderedStyleEditText2_fieldLabelTextColor,
+                        R.styleable.PrefixedBorderedStyleEditText_fieldLabelTextColor,
                         titleTextColor
                     )
                     tvFieldLabelTitle.setTextColor(titleTextColor)
                 }
-                R.styleable.PrefixedBorderedStyleEditText2_android_hint -> {
-                    etField.hint = attributes.getString(R.styleable.PrefixedBorderedStyleEditText2_android_hint)
+                R.styleable.PrefixedBorderedStyleEditText_android_hint -> {
+                    etField.hint = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_android_hint)
                 }
 
-                R.styleable.PrefixedBorderedStyleEditText2_android_textAppearance -> {
+                R.styleable.PrefixedBorderedStyleEditText_android_textAppearance -> {
                     val appearance = attributes.getResourceId(attr, 0)
                     TextViewCompat.setTextAppearance(etField, appearance)
                 }
-                R.styleable.PrefixedBorderedStyleEditText2_prefix -> {
-                    tvPrefix.text = attributes.getString(R.styleable.PrefixedBorderedStyleEditText2_prefix)
+                R.styleable.PrefixedBorderedStyleEditText_prefix -> {
+                    tvPrefix.text = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_prefix)
                 }
 
 
-                R.styleable.PrefixedBorderedStyleEditText2_android_focusableInTouchMode -> {
+                R.styleable.PrefixedBorderedStyleEditText_android_focusableInTouchMode -> {
                     etField.isFocusableInTouchMode = attributes.getBoolean(attr, true)
                 }
-                R.styleable.PrefixedBorderedStyleEditText2_android_clickable -> {
+                R.styleable.PrefixedBorderedStyleEditText_android_clickable -> {
                     etField.isClickable = attributes.getBoolean(attr, true)
                 }
-                R.styleable.PrefixedBorderedStyleEditText2_android_focusable -> {
+                R.styleable.PrefixedBorderedStyleEditText_android_focusable -> {
                     etField.isFocusable = attributes.getBoolean(attr, true)
                 }
-                R.styleable.PrefixedBorderedStyleEditText2_android_textColorHint -> {
-                    textColorHint = attributes.getColor(R.styleable.PrefixedBorderedStyleEditText2_android_textColorHint, textColorHint)
+                R.styleable.PrefixedBorderedStyleEditText_android_textColorHint -> {
+                    textColorHint = attributes.getColor(R.styleable.PrefixedBorderedStyleEditText_android_textColorHint, textColorHint)
                     etField.setHintTextColor(textColorHint)
                 }
             }
