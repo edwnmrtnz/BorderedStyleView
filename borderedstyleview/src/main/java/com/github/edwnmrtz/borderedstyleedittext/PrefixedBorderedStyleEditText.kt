@@ -37,7 +37,7 @@ class PrefixedBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
 
     init {
 
-        View.inflate(context, R.layout.bordered_edittext_prefixed2, this)
+        View.inflate(context, R.layout.bordered_edittext_prefixed, this)
         tvFieldLabelTitle       = findViewById(R.id.tvFieldLabelTitle)
         tvAssistiveText         = findViewById(R.id.tvAssistiveText)
         tvPrefix                = findViewById(R.id.tvPrefix)
