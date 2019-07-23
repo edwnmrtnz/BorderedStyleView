@@ -82,7 +82,7 @@ class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
                     tvFieldLabelTitle.setTextColor(titleTextColor)
                 }
                 R.styleable.PasswordBorderedStyleEditText_android_hint -> {
-                    etField.hint = attributes.getString(R.styleable.PrefixedBorderedStyleEditText_android_hint)
+                    etField.hint = attributes.getString(R.styleable.PasswordBorderedStyleEditText_android_hint)
                 }
                 R.styleable.PasswordBorderedStyleEditText_android_textAppearance -> {
                     TextViewCompat.setTextAppearance(etField, attributes.getResourceId(attr, 0))
@@ -162,9 +162,5 @@ class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
     fun disable() {
         etField.isEnabled = false
         flField.setBackgroundResource(R.drawable.bordered_roundbox_disabled)
-    }
-
-    companion object {
-        val TAG = "PasswordBorderedStyle"
     }
 }
