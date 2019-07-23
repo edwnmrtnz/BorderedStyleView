@@ -151,8 +151,4 @@ class AutoCompleteBorderedStyleEditText (context: Context, attrs: AttributeSet) 
         etField.isEnabled = false
         flField.setBackgroundResource(R.drawable.bordered_roundbox_disabled)
     }
-
-    companion object {
-        val TAG = "NormalBorderedStyle"
-    }
 }

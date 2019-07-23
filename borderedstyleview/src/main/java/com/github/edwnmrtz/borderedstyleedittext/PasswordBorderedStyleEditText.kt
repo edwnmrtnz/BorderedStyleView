@@ -163,8 +163,4 @@ class PasswordBorderedStyleEditText (context: Context, attrs: AttributeSet) : Co
         etField.isEnabled = false
         flField.setBackgroundResource(R.drawable.bordered_roundbox_disabled)
     }
-
-    companion object {
-        val TAG = "PasswordBorderedStyle"
-    }
 }
