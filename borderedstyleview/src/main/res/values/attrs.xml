@@ -25,7 +25,7 @@
 
     </declare-styleable>
 
-    <declare-styleable name="PrefixedBorderedStyleEditText2">
+    <declare-styleable name="PrefixedBorderedStyleEditText">
         <attr name="fieldLabel"/>
         <attr name="assistiveText"/>
         <attr name="fieldLabelTextColor"/>

@@ -30,7 +30,7 @@ class FragmentOne : Fragment() {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.fragment_fragment_one, container, false)
 
-//        val etPrefixed : PrefixedBorderedStyleEditText2 = view.findViewById(R.id.etPrefixed)
+//        val etPrefixed : PrefixedBorderedStyleEditText = view.findViewById(R.id.etPrefixed)
 //
 //        setEditTextFocus(etPrefixed.getEditText(), true)
 

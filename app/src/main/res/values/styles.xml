@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
@@ -29,7 +29,8 @@
         <item name="colorAccent">@color/colorPrimary</item>
     </style>
 
-    <style name="AppTheme.ProgressDialog" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+    <style name="AppTheme.ProgressDialog" parent="Theme.MaterialComponents.Light.Dialog.Alert"
+           tools:ignore="UnusedResources">
         <item name="windowMinWidthMinor">80%</item>
         <item name="windowMinWidthMajor">90%</item>
         <item name="windowFixedWidthMajor">80%</item>
@@ -39,7 +40,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.GeneralDialog" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+    <style name="AppTheme.GeneralDialog" parent="Theme.MaterialComponents.Light.Dialog.Alert"
+           tools:ignore="UnusedResources">
         <item name="windowMinWidthMinor">98%</item>
         <item name="windowMinWidthMajor">98%</item>
         <item name="windowFixedWidthMajor">98%</item>

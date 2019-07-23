@@ -18,7 +18,7 @@ import android.graphics.Typeface
 import android.widget.FrameLayout
 
 
-open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
+class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) : ConstraintLayout(context, attrs) {
 
      private var tvFieldLabelTitle: AppCompatTextView
      private var tvAssistiveText: AppCompatTextView
@@ -181,6 +181,6 @@ open class NormalBorderedStyleEditText (context: Context, attrs: AttributeSet) :
     }
 
     companion object {
-        val TAG = "NormalBorderedStyle"
+        const val TAG = "NormalBorderedStyle"
     }
 }
